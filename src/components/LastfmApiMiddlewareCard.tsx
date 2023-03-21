@@ -28,7 +28,7 @@ interface LastFmApiMiddlewareV1RecentTracksResponse {
 
 const LastfmApiMiddlewareCard: React.FC<{}> = () => {
   const [loading, setLoading] = React.useState<boolean>(true)
-  const [response, setResponse] = React.useState<LastFmApiMiddlewareV1RecentTracksResponse>(null)
+  const [response, setResponse] = React.useState<LastFmApiMiddlewareV1RecentTracksResponse | null>(null)
 
   useEffect(() => {
     if (response === null) {
@@ -44,7 +44,7 @@ const LastfmApiMiddlewareCard: React.FC<{}> = () => {
     }
   }, [loading, response])
 
-  const lastTrack = response?.recenttracks.track.length > 0 ? response.recenttracks.track[0] : null
+  const lastTrack = response != null && response?.recenttracks.track.length > 0 ? response.recenttracks.track[0] : null
   const isPlaying = lastTrack?.['@attr']?.nowplaying === 'true'
 
   const lastTrackUrl = lastTrack?.url

@@ -18,7 +18,7 @@ const useGitHubRecentRepos = () => {
       fetch('https://api.github.com/users/aoirint/repos?sort=pushed&per_page=10')
         .then((data) => data.json())
         .then((data) => {
-          const repos = data.map((repo): Repo => {
+          const repos = data.map((repo: any): Repo => {
             const title = repo.full_name
             const url = repo.html_url
 
