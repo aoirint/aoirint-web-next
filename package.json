@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next-sitemap && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,6 +17,7 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "next": "13.2.4",
+    "next-sitemap": "^4.0.6",
     "node-sass": "^7.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
