@@ -92,6 +92,10 @@ const Navbar: React.FC<{}> = () => {
                     Mastodon @aoirint@mstdn.aoirint.com
                   </a>
 
+                  <a className="navbar-item" rel="me" href="https://misskey.io/@aoirint">
+                    Misskey.io @aoirint@misskey.io
+                  </a>
+
                   <a className="navbar-item" rel="me" href="https://pypi.org/user/aoirint/">
                     PyPI @aoirint
                   </a>
