@@ -140,6 +140,9 @@ const Softwares: React.FC<{}> = () => {
           <h2 className='title is-4 mt-5'>
             開発者向けライブラリ
           </h2>
+          <h3 className='subtitle is-6 mb-4'>
+            開発者向けのライブラリ・パッケージを開発しています
+          </h3>
           <SoftwareCardList cards={libraryCards} />
         </div>
       </section>
