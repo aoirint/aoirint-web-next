@@ -93,7 +93,7 @@ const Navbar: React.FC<{}> = () => {
                 </a>
 
                 <div className="navbar-dropdown">
-                  <a className="navbar-item" href="https://github.com/pulls?q=involves%3Aaoirint+-user%3Aaoirint">
+                  <a className="navbar-item" href="https://github.com/pulls?q=involves%3Aaoirint+-user%3Aaoirint+sort%3Aupdated-desc">
                     GitHub上の活動を検索
                   </a>
 
