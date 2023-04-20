@@ -50,10 +50,10 @@ const useLiveinfoApiMiddlewareYtlive = () => {
 
           setProgram({
             isOnair: isOnair ?? false,
-            programTitle: program.title ?? null,
-            programUrl: program.url ?? null,
-            thumbnailUrl: program.thumbnails.standard.url ?? null,
-            channelName: channel.name ?? null,
+            programTitle: program?.title ?? null,
+            programUrl: program?.url ?? null,
+            thumbnailUrl: program?.thumbnails?.standard?.url ?? null,
+            channelName: channel?.name ?? null,
             channelUrl: channel?.url ?? null,
           })
           setLoading(false)

@@ -50,9 +50,9 @@ const useLiveinfoApiMiddlewareNicolive = () => {
 
           setProgram({
             isOnair: isOnair ?? false,
-            programTitle: program.title ?? null,
-            programUrl: program.url ?? null,
-            thumbnailUrl: program?.thumbnails[0] ?? null,
+            programTitle: program?.title ?? null,
+            programUrl: program?.url ?? null,
+            thumbnailUrl: program?.thumbnails?.[0] ?? null,
             communityName: community?.name ?? null,
             communityUrl: community?.url ?? null,
             userName: user?.name ?? null,
