@@ -76,6 +76,12 @@ const Navbar: React.FC<{}> = () => {
                     Minecraftサーバーの稼働状況
                   </Link>
 
+                  <hr className='navbar-divider' />
+
+                  <a className="navbar-item" href="https://scrapbox.io/aoirint/">
+                    Scrapbox
+                  </a>
+
                   <a className="navbar-item" href="https://wiki.aoirint.com/">
                     Wiki
                   </a>
