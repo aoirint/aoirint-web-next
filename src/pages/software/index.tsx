@@ -66,29 +66,6 @@ const softwareCards: SoftwareCard[] = [
   },
 ]
 
-const dockerImageCards: SoftwareCard[] = [
-  {
-    title: 'Stable Diffusion WebUI',
-    description: 'Stable Diffusion系の画像生成モデルをブラウザから操作するUI（WebUI）',
-    image: '/software/images/blank.png',
-    imageAlt: 'Blank Image',
-    useUrl: 'https://hub.docker.com/r/aoirint/sd_webui',
-    sourceCodeUrl: 'https://github.com/aoirint/stable-diffusion-webui-docker',
-    detailUrl: null,
-    sourceProjectUrl: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
-  },
-  {
-    title: 'LoRA Easy Training Scripts',
-    description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
-    image: '/software/images/blank.png',
-    imageAlt: 'Blank Image',
-    useUrl: 'https://hub.docker.com/r/aoirint/lora_ets',
-    sourceCodeUrl: 'https://github.com/aoirint/LoRA_Easy_Training_Scripts_docker',
-    detailUrl: null,
-    sourceProjectUrl: 'https://github.com/derrian-distro/LoRA_Easy_Training_Scripts',
-  },
-]
-
 const libraryCards: SoftwareCard[] = [
   {
     title: 'jmapy',
@@ -112,6 +89,29 @@ const libraryCards: SoftwareCard[] = [
   },
 ]
 
+const dockerImageCards: SoftwareCard[] = [
+  {
+    title: 'Stable Diffusion WebUI',
+    description: 'Stable Diffusion系の画像生成モデルをブラウザから操作するUI（WebUI）',
+    image: '/software/images/blank.png',
+    imageAlt: 'Blank Image',
+    useUrl: 'https://hub.docker.com/r/aoirint/sd_webui',
+    sourceCodeUrl: 'https://github.com/aoirint/stable-diffusion-webui-docker',
+    detailUrl: null,
+    sourceProjectUrl: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
+  },
+  {
+    title: 'LoRA Easy Training Scripts',
+    description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
+    image: '/software/images/blank.png',
+    imageAlt: 'Blank Image',
+    useUrl: 'https://hub.docker.com/r/aoirint/lora_ets',
+    sourceCodeUrl: 'https://github.com/aoirint/LoRA_Easy_Training_Scripts_docker',
+    detailUrl: null,
+    sourceProjectUrl: 'https://github.com/derrian-distro/LoRA_Easy_Training_Scripts',
+  },
+]
+
 const Softwares: React.FC<{}> = () => {
   return (
     <>
@@ -131,19 +131,19 @@ const Softwares: React.FC<{}> = () => {
           </h2>
           <SoftwareCardList cards={softwareCards} />
           <h2 className='title is-4 mt-5'>
-            Dockerイメージ
-          </h2>
-          <h3 className='subtitle is-6 mb-4'>
-            OSSソフトウェアをDockerイメージ化しています
-          </h3>
-          <SoftwareCardList cards={dockerImageCards} />
-          <h2 className='title is-4 mt-5'>
             開発者向けライブラリ
           </h2>
           <h3 className='subtitle is-6 mb-4'>
             開発者向けのライブラリ・パッケージを開発しています
           </h3>
           <SoftwareCardList cards={libraryCards} />
+          <h2 className='title is-4 mt-5'>
+            Dockerイメージ
+          </h2>
+          <h3 className='subtitle is-6 mb-4'>
+            OSSソフトウェアをDockerイメージ化しています
+          </h3>
+          <SoftwareCardList cards={dockerImageCards} />
         </div>
       </section>
     </>
