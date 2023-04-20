@@ -13,7 +13,7 @@ const MinecraftPage: React.FC<{}> = () => {
   return (
     <>
       <Head>
-        <title>Minecraft Servers - aoirint.com</title>
+        <title>Minecraft Servers - aoirint</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

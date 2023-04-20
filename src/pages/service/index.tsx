@@ -51,7 +51,7 @@ const Services: React.FC<{}> = () => {
   return (
     <>
       <Head>
-        <title>サービス - aoirint.com</title>
+        <title>サービス - aoirint</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

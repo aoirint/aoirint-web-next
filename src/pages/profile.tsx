@@ -9,7 +9,7 @@ const ProfilePage: React.FC<{}> = () => {
   return (
     <>
       <Head>
-        <title>プロフィール - aoirint.com</title>
+        <title>プロフィール - aoirint</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

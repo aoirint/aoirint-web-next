@@ -76,7 +76,7 @@ const Activities: React.FC<{}> = () => {
   return (
     <>
       <Head>
-        <title>作品ギャラリー - aoirint.com</title>
+        <title>作品ギャラリー - aoirint</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
