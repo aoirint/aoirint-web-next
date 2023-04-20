@@ -75,6 +75,10 @@ const Navbar: React.FC<{}> = () => {
                   <Link className="navbar-item" href="/minecraft/">
                     Minecraftサーバーの稼働状況
                   </Link>
+
+                  <a className="navbar-item" href="https://wiki.aoirint.com/">
+                    Wiki
+                  </a>
                 </div>
               </div>
               <div className="navbar-item has-dropdown is-hoverable">
@@ -89,10 +93,6 @@ const Navbar: React.FC<{}> = () => {
 
                   <a className="navbar-item" rel="me" href="https://qiita.com/aoirint">
                     Qiita @aoirint
-                  </a>
-
-                  <a className="navbar-item" rel="me" href="https://mstdn.aoirint.com/@aoirint">
-                    Mastodon @aoirint@mstdn.aoirint.com
                   </a>
 
                   <a className="navbar-item" rel="me" href="https://misskey.io/@aoirint">
@@ -123,17 +123,17 @@ const Navbar: React.FC<{}> = () => {
             </div>
 
             <div className="navbar-end">
-              <a className="navbar-item" rel="me" href="https://twitter.com/aoirint">
-                Twitter
+              <a className="navbar-item" href="https://blog.aoirint.com/">
+                Blog
               </a>
               <a className="navbar-item" rel="me" href="https://github.com/aoirint">
                 GitHub
               </a>
-              <a className="navbar-item" href="https://blog.aoirint.com/">
-                Blog
+              <a className="navbar-item" rel="me" href="https://twitter.com/aoirint">
+                Twitter
               </a>
-              <a className="navbar-item" href="https://wiki.aoirint.com/">
-                Wiki
+              <a className="navbar-item" rel="me" href="https://mstdn.aoirint.com/@aoirint">
+                Fediverse
               </a>
             </div>
           </div>
