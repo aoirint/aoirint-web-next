@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar'
 import SoftwareCardList, { SoftwareCard } from '@/components/SoftwareCardList'
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react'
 
 const softwareCards: SoftwareCard[] = [
