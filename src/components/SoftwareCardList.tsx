@@ -43,6 +43,9 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                     {card.sourceCodeUrl != null ? (
                       <a href={card.sourceCodeUrl} className="button is-light">ソースコード</a>
                     ) : ''}
+                    {card.sourceProjectUrl != null ? (
+                      <a href={card.sourceProjectUrl} className="button is-light">本体ソースコード</a>
+                    ) : ''}
                     {card.detailUrl != null ? (
                       <a href={card.detailUrl} className="button is-info">詳細</a>
                     ) : ''}
