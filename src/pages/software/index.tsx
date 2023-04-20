@@ -69,7 +69,7 @@ const softwareCards: SoftwareCard[] = [
 const dockerImageCards: SoftwareCard[] = [
   {
     title: 'Stable Diffusion WebUI',
-    description: '',
+    description: 'Stable Diffusion系の画像生成モデルをブラウザから操作するUI（WebUI）',
     image: '/software/images/blank.png',
     imageAlt: 'Blank Image',
     useUrl: 'https://hub.docker.com/r/aoirint/sd_webui',
@@ -79,7 +79,7 @@ const dockerImageCards: SoftwareCard[] = [
   },
   {
     title: 'LoRA Easy Training Scripts',
-    description: '',
+    description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
     image: '/software/images/blank.png',
     imageAlt: 'Blank Image',
     useUrl: 'https://hub.docker.com/r/aoirint/lora_ets',
