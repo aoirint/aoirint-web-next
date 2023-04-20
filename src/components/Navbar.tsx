@@ -91,8 +91,20 @@ const Navbar: React.FC<{}> = () => {
                     GitHub上の活動を検索
                   </a>
 
+                  <a className="navbar-item" rel="me" href="https://github.com/aoirint">
+                    GitHub @aoirint
+                  </a>
+
                   <a className="navbar-item" rel="me" href="https://qiita.com/aoirint">
                     Qiita @aoirint
+                  </a>
+
+                  <a className="navbar-item" rel="me" href="https://twitter.com/aoirint">
+                    Twitter @aoirint
+                  </a>
+
+                  <a className="navbar-item" rel="me" href="https://mstdn.aoirint.com/@aoirint">
+                    Mastodon @aoirint@mstdn.aoirint.com
                   </a>
 
                   <a className="navbar-item" rel="me" href="https://misskey.io/@aoirint">
