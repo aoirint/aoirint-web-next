@@ -50,7 +50,7 @@ const Contents: React.FC<{}> = () => {
             コンテンツ
           </h1>
           <h2 className='subtitle is-6 mb-4'>
-            技術情報の発信やエンターテインメントコンテンツの制作をしています
+            技術情報の発信をしています
           </h2>
           <div className='columns is-multiline'>
             {cards.map((card, cardIndex) => (
