@@ -1,6 +1,7 @@
 import useBlogRecentPosts from '@/api/useBlogRecentPosts'
 import useGitHubRecentRepos from '@/api/useGitHubRecentRepos'
 import useLastfmApiMiddleware from '@/api/useLastfmApiMiddleware'
+import useLiveinfoApiMiddlewareNicolive from '@/api/useLiveinfoApiMiddlewareNicolive'
 import LastfmApiMiddlewareCard from '@/components/LastfmApiMiddlewareCard'
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
@@ -18,6 +19,9 @@ export default function Home() {
   const {
     track,
   } = useLastfmApiMiddleware()
+  const {
+    program: nicoliveProgram,
+  } = useLiveinfoApiMiddlewareNicolive()
 
   return (
     <>
@@ -51,7 +55,9 @@ export default function Home() {
           {track != null && track.isPlaying ? (
             <LastfmApiMiddlewareCard track={track} />
           ) : ''}
-          <LiveinfoApiMiddlewareNicoliveCard />
+          {nicoliveProgram != null && nicoliveProgram.isOnair ? (
+            <LiveinfoApiMiddlewareNicoliveCard program={nicoliveProgram} />
+          ) : ''}
           <LiveinfoApiMiddlewareYtliveCard />
           <div className='columns'>
             <div className='column my-2'>

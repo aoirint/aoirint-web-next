@@ -1,58 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import { NicoliveProgram } from '@/api/useLiveinfoApiMiddlewareNicolive'
+import React from 'react'
 
-interface LiveinfoApiMiddlewareV1NicoliveResponse {
-  program: {
-    id: string
-    title: string
-    description: string
-    url: string
-    thumbnails: string[]
-    startTime: string
-    endTime: string
-    isOnair: boolean
-  }
-  community: {
-    name: string
-    url: string
-    iconUrl: string
-  }
-  user: {
-    name: string
-    url: string
-    iconUrl: string
-  }
+interface LiveinfoApiMiddlewareNicoliveCardProps {
+  program: NicoliveProgram
 }
 
-const LiveinfoApiMiddlewareNicoliveCard: React.FC<{}> = () => {
-  const [loading, setLoading] = React.useState<boolean>(true)
-  const [response, setResponse] = React.useState<LiveinfoApiMiddlewareV1NicoliveResponse | null>(null)
-
-  useEffect(() => {
-    if (response === null) {
-      fetch('https://liveinfo-api-middleware.aoirint.com/v1/nicolive')
-        .then((data) => data.json())
-        .then((data: LiveinfoApiMiddlewareV1NicoliveResponse) => {
-          setLoading(false)
-          setResponse(data)
-        })
-        .catch((error: unknown) => {
-          console.error(error)
-        })
-    }
-  }, [loading, response])
-
-  const program = response?.program
-  const isOnair = program?.isOnair
-  const community = response?.community
-  const user = response?.user
-
-  return isOnair ? (
+const LiveinfoApiMiddlewareNicoliveCard: React.FC<LiveinfoApiMiddlewareNicoliveCardProps> = ({
+  program,
+}) => {
+  return program.isOnair ? (
     <>
       <div
         className='card mb-6'
         style={
-          isOnair && program?.thumbnails[0] != null ? {
-            backgroundImage: `url(${program.thumbnails[0]})`,
+          program.isOnair && program.thumbnailUrl != null ? {
+            backgroundImage: `url(${program.thumbnailUrl})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundColor: 'whitesmoke',
@@ -62,34 +24,29 @@ const LiveinfoApiMiddlewareNicoliveCard: React.FC<{}> = () => {
         <div
           className="card-content py-4"
           style={
-            isOnair && program?.thumbnails[0] != null ? {
+            program.isOnair && program.thumbnailUrl != null ? {
               backgroundColor: 'rgba(255, 255, 255, 0.75)',
             } : {}
           }
         >
           <div className="media">
             <div className="media-content">
-              {isOnair ? (
+              {program.isOnair ? (
                 <>
                   <p className="title is-5">
-                    <a href={program?.url ?? '#'} style={{ color: 'inherit' }}>
-                      {program?.title}
+                    <a href={program.programUrl ?? '#'} style={{ color: 'inherit' }}>
+                      {program.programTitle}
                     </a>
                   </p>
                   <p className="subtitle is-7 mb-2">
-                    <a href={community?.url ?? '#'} style={{ color: 'inherit' }}>
-                      {community?.name}
+                    <a href={program.communityUrl ?? '#'} style={{ color: 'inherit' }}>
+                      {program.communityName}
                     </a>
                     {' - '}
-                    <a href={user?.url ?? '#'} style={{ color: 'inherit' }}>
-                      {user?.name}
+                    <a href={program.userUrl ?? '#'} style={{ color: 'inherit' }}>
+                      {program.userName}
                     </a>
                   </p>
-                </>
-              ) : loading ? (
-                <>
-                  <p className="title is-5">読み込み中</p>
-                  <p className="subtitle is-7 mb-2">-</p>
                 </>
               ) : (
                 <>
