@@ -12,6 +12,9 @@ const Navbar: React.FC<{}> = () => {
           <div className="navbar-brand">
             <Link className="navbar-item" href="/">
               <Image src='/images/icon.png' alt="Logo image" width="28" height="28" />
+              <div className='has-text-weight-bold ml-2'>
+                aoirint
+              </div>
             </Link>
 
             <button role="button" className={`navbar-burger ${active ? 'is-active' : ''}`} aria-label="menu" aria-expanded="false" data-target="navbarBasic" onClick={() => {
