@@ -1,5 +1,6 @@
 import useBlogRecentPosts from '@/api/useBlogRecentPosts'
 import useGitHubRecentRepos from '@/api/useGitHubRecentRepos'
+import useLastfmApiMiddleware from '@/api/useLastfmApiMiddleware'
 import LastfmApiMiddlewareCard from '@/components/LastfmApiMiddlewareCard'
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
@@ -14,6 +15,9 @@ export default function Home() {
   const {
     posts,
   } = useBlogRecentPosts()
+  const {
+    track,
+  } = useLastfmApiMiddleware()
 
   return (
     <>
@@ -44,51 +48,12 @@ export default function Home() {
               </p>
             </div>
           </div>
+          {track != null && track.isPlaying ? (
+            <LastfmApiMiddlewareCard track={track} />
+          ) : ''}
+          <LiveinfoApiMiddlewareNicoliveCard />
+          <LiveinfoApiMiddlewareYtliveCard />
           <div className='columns'>
-            <div className='column my-2'>
-              <h2 className='title is-4'>
-                ステータス
-              </h2>
-              <LastfmApiMiddlewareCard />
-              <LiveinfoApiMiddlewareNicoliveCard />
-              <LiveinfoApiMiddlewareYtliveCard />
-
-              {/* <h2 className='title is-4'>
-                興味関心
-              </h2>
-              <ul>
-                {interests.map((interest, index) => (
-                  <li key={index} className='mb-2'>
-                    <a href={interest.url}>
-                      <div style={{ backgroundImage: interest.backgroundImage, backgroundColor: interest.backgroundColor, borderRadius: '8px' }}>
-                        <div className="is-flex is-justify-content-right is-align-items-end" style={{ backgroundColor: interest.shadowColor, borderRadius: '8px', height: '100px' }}>
-                          <div className="px-3 py-2 is-size-4 has-text-weight-bold" style={{ color: '#FFF' }}>
-                            {interest.title}
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
-            </div>
-            {/* <div className='column'>
-                  <h2 className='title is-4'>
-                    Activity
-                  </h2>
-                  <ul>
-                    {activities.map((activity) => (
-                      <li className='mb-2'>
-                        <a href={activity.url} target='_blank' className='mb-2'>
-                          {activity.title}
-                        </a>
-                        <div className='is-size-7'>
-                        {activity.category}, {activity.date}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
             <div className='column my-2'>
               <h2 className='title is-4'>
                 最近の記事
