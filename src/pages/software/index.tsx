@@ -101,16 +101,6 @@ const dockerImageCards: SoftwareCard[] = [
     detailUrl: null,
     sourceProjectUrl: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
   },
-  {
-    title: 'LoRA Easy Training Scripts',
-    description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
-    image: '/software/images/blank.png',
-    imageAlt: 'Blank Image',
-    useUrl: 'https://hub.docker.com/r/aoirint/lora_ets',
-    sourceCodeUrl: 'https://github.com/aoirint/LoRA_Easy_Training_Scripts_docker',
-    detailUrl: null,
-    sourceProjectUrl: 'https://github.com/derrian-distro/LoRA_Easy_Training_Scripts',
-  },
 ]
 
 const Softwares: React.FC<{}> = () => {

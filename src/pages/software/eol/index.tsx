@@ -7,6 +7,19 @@ import React from 'react'
 const eolSoftwareCards: SoftwareCard[] = [
 ]
 
+const eolDockerImageCards: SoftwareCard[] = [
+  {
+    title: 'LoRA Easy Training Scripts',
+    description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
+    image: '/software/images/blank.png',
+    imageAlt: 'Blank Image',
+    useUrl: null, // 'https://hub.docker.com/r/aoirint/lora_ets',
+    sourceCodeUrl: 'https://github.com/aoirint/LoRA_Easy_Training_Scripts_docker',
+    detailUrl: null,
+    sourceProjectUrl: 'https://github.com/derrian-distro/LoRA_Easy_Training_Scripts',
+  },
+]
+
 const EolSoftwares: React.FC<{}> = () => {
   return (
     <>
@@ -26,6 +39,19 @@ const EolSoftwares: React.FC<{}> = () => {
           </h2>
           {eolSoftwareCards.length > 0 ? (
             <SoftwareCardList cards={eolSoftwareCards} />
+          ) : (
+            <p className='content'>
+              現在、項目はありません。
+            </p>
+          )}
+          <h2 className='title is-4 mt-5'>
+            Dockerイメージ
+          </h2>
+          <h3 className='subtitle is-6 mb-4'>
+            OSSソフトウェアをDockerイメージ化していました
+          </h3>
+          {eolDockerImageCards.length > 0 ? (
+            <SoftwareCardList cards={eolDockerImageCards} />
           ) : (
             <p className='content'>
               現在、項目はありません。
