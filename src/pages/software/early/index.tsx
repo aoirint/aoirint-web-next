@@ -22,7 +22,7 @@ const EarlySoftwares: React.FC<{}> = () => {
             開発早期のソフトウェア
           </h1>
           <h2 className='subtitle is-6 mb-4'>
-            アルファ版・ベータ版の開発早期段階にあるソフトウェア
+            アルファ版・ベータ版の開発早期段階にあるソフトウェアを紹介します
           </h2>
           {earlySoftwareCards.length > 0 ? (
             <SoftwareCardList cards={earlySoftwareCards} />
