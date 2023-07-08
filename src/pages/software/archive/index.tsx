@@ -4,10 +4,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
-const eolSoftwareCards: SoftwareCard[] = [
+const archiveSoftwareCards: SoftwareCard[] = [
 ]
 
-const eolDockerImageCards: SoftwareCard[] = [
+const archiveDockerImageCards: SoftwareCard[] = [
   {
     title: 'LoRA Easy Training Scripts',
     description: 'Stable Diffusion系の画像生成モデル用のLoRAを訓練するスクリプト',
@@ -21,7 +21,7 @@ const eolDockerImageCards: SoftwareCard[] = [
   },
 ]
 
-const EolSoftwares: React.FC<{}> = () => {
+const ArchiveSoftwares: React.FC<{}> = () => {
   return (
     <>
       <Head>
@@ -38,8 +38,8 @@ const EolSoftwares: React.FC<{}> = () => {
           <h2 className='subtitle is-6 mb-4'>
             開発および保守を終了したソフトウェアを紹介します
           </h2>
-          {eolSoftwareCards.length > 0 ? (
-            <SoftwareCardList cards={eolSoftwareCards} />
+          {archiveSoftwareCards.length > 0 ? (
+            <SoftwareCardList cards={archiveSoftwareCards} />
           ) : (
             <p className='content'>
               現在、項目はありません。
@@ -51,8 +51,8 @@ const EolSoftwares: React.FC<{}> = () => {
           <h3 className='subtitle is-6 mb-4'>
             OSSソフトウェアをDockerイメージ化していました
           </h3>
-          {eolDockerImageCards.length > 0 ? (
-            <SoftwareCardList cards={eolDockerImageCards} />
+          {archiveDockerImageCards.length > 0 ? (
+            <SoftwareCardList cards={archiveDockerImageCards} />
           ) : (
             <p className='content'>
               現在、項目はありません。
@@ -74,4 +74,4 @@ const EolSoftwares: React.FC<{}> = () => {
   )
 }
 
-export default EolSoftwares
+export default ArchiveSoftwares
