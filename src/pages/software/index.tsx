@@ -99,6 +99,17 @@ const dockerImageCards: SoftwareCard[] = [
     detailUrl: null,
     sourceProjectUrl: 'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
   },
+  {
+    title: 'sd-scripts',
+    description: 'Stable Diffusion系の画像生成モデルのFine tuningやLoRAを訓練するスクリプト',
+    image: '/software/images/blank.png',
+    imageAlt: 'Blank Image',
+    useUrl: 'https://hub.docker.com/r/aoirint/sd_scripts',
+    archiveUrl: null,
+    sourceCodeUrl: 'https://github.com/aoirint/sd-scripts-docker',
+    detailUrl: null,
+    sourceProjectUrl: 'https://github.com/kohya-ss/sd-scripts',
+  },
 ]
 
 const Softwares: React.FC<{}> = () => {
