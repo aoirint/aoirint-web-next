@@ -5,6 +5,17 @@ import Link from 'next/link'
 import React from 'react'
 
 const archiveSoftwareCards: SoftwareCard[] = [
+  {
+    title: 'Nalypoll',
+    description: 'Twitterの投票経過をグラフ化するWebアプリ',
+    image: '/software/images/blank.png',
+    imageAlt: 'Blank Image',
+    useUrl: null,
+    archiveUrl: 'https://nalypoll.aoirint.com',
+    sourceCodeUrl: 'https://github.com/aoirint/nalypoll',
+    detailUrl: null,
+    sourceProjectUrl: null,
+  },
 ]
 
 const archiveDockerImageCards: SoftwareCard[] = [

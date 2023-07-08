@@ -6,17 +6,6 @@ import React from 'react'
 
 const softwareCards: SoftwareCard[] = [
   {
-    title: 'Nalypoll',
-    description: 'Twitterの投票経過をグラフ化するWebアプリ',
-    image: '/software/images/blank.png',
-    imageAlt: 'Blank Image',
-    useUrl: 'https://nalypoll.aoirint.com',
-    archiveUrl: null,
-    sourceCodeUrl: 'https://github.com/aoirint/nalypoll',
-    detailUrl: null,
-    sourceProjectUrl: null,
-  },
-  {
     title: 'Syosetu Yomi Copy Extension',
     description: '小説家になろうの小説ページを、音声合成ソフトによる読み上げ用に整形してクリップボードにコピーするためのChrome拡張機能',
     image: '/software/images/syosetu-yomicopy-extension.png',
