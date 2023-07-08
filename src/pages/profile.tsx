@@ -68,10 +68,6 @@ const ProfilePage: React.FC<{}> = () => {
                     <td><a href="https://github.com/VOICEVOX">VOICEVOX</a> レビュワー</td>
                   </tr>
                   <tr>
-                    <th>2021/04 -</th>
-                    <td>電気通信大学 大学院 情報・ネットワーク工学専攻</td>
-                  </tr>
-                  <tr>
                     <th>2017/08 -</th>
                     <td>某 ソフトウェア開発系企業（アルバイト）</td>
                   </tr>
@@ -82,10 +78,6 @@ const ProfilePage: React.FC<{}> = () => {
                   <tr>
                     <th>2017/04 - 2021/03</th>
                     <td>電気通信大学 情報理工学域</td>
-                  </tr>
-                  <tr>
-                    <th>2014/04 - 2017/03</th>
-                    <td>静岡県立富士高等学校</td>
                   </tr>
                 </tbody>
               </table>
