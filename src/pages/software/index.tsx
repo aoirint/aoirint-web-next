@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar'
 import SoftwareCardList, { SoftwareCard } from '@/components/SoftwareCardList'
 import Head from 'next/head'
+import Link from 'next/link'
 import React from 'react'
 
 const softwareCards: SoftwareCard[] = [
@@ -144,6 +145,16 @@ const Softwares: React.FC<{}> = () => {
             OSSソフトウェアをDockerイメージ化しています
           </h3>
           <SoftwareCardList cards={dockerImageCards} />
+          <h2 className='title is-4 mt-5'>
+            その他のソフトウェア
+          </h2>
+          <p className='content'>
+            <ul>
+              <li>
+                <Link href="/software/early/">開発早期のソフトウェア</Link>
+              </li>
+            </ul>
+          </p>
         </div>
       </section>
     </>
