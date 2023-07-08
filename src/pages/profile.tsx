@@ -68,8 +68,8 @@ const ProfilePage: React.FC<{}> = () => {
                     <td><a href="https://github.com/VOICEVOX">VOICEVOX</a> レビュワー</td>
                   </tr>
                   <tr>
-                    <th>2021/04 -</th>
-                    <td>電気通信大学 大学院 情報・ネットワーク工学専攻</td>
+                    <th>2021/04 - 2023/06</th>
+                    <td>電気通信大学 大学院 情報・ネットワーク工学専攻 中途退学</td>
                   </tr>
                   <tr>
                     <th>2017/08 -</th>
