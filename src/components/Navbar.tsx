@@ -117,6 +117,10 @@ const Navbar: React.FC<{}> = () => {
                     Misskey.io @aoirint@misskey.io
                   </a>
 
+                  <a className="navbar-item" rel="me" href="https://www.threads.net/@aoirint">
+                    Threads @aoirint@threads.net
+                  </a>
+
                   <a className="navbar-item" rel="me" href="https://keybase.io/aoirint">
                     Keybase @aoirint
                   </a>
