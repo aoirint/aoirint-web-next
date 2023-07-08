@@ -7,6 +7,8 @@ export interface SoftwareCard {
   image: string
   imageAlt: string
   useUrl: string | null
+  /** 跡地サイトやアーカイブサイトのURL */
+  archiveUrl: string | null
   sourceCodeUrl: string | null
   detailUrl: string | null
   sourceProjectUrl: string | null
@@ -39,6 +41,9 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   <div className='buttons'>
                     {card.useUrl != null ? (
                       <a href={card.useUrl} className="button is-primary">使ってみる</a>
+                    ) : ''}
+                    {card.archiveUrl != null ? (
+                      <a href={card.archiveUrl} className="button is-link">跡地</a>
                     ) : ''}
                     {card.sourceCodeUrl != null ? (
                       <a href={card.sourceCodeUrl} className="button is-light">ソースコード</a>
