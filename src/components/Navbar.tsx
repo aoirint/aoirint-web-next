@@ -125,6 +125,10 @@ const Navbar: React.FC<{}> = () => {
                     Keybase @aoirint
                   </a>
 
+                  <a className="navbar-item" rel="me" href="https://atcoder.jp/users/aoirint">
+                    AtCoder @aoirint
+                  </a>
+
                   <a className="navbar-item" rel="me" href="https://pypi.org/user/aoirint/">
                     PyPI @aoirint
                   </a>
