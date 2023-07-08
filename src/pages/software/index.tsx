@@ -153,6 +153,9 @@ const Softwares: React.FC<{}> = () => {
               <li>
                 <Link href="/software/early/">開発早期のソフトウェア</Link>
               </li>
+              <li>
+                <Link href="/software/eol/">メンテナンスを終了したソフトウェア</Link>
+              </li>
             </ul>
           </p>
         </div>
