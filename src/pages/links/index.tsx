@@ -19,8 +19,8 @@ const LinksPage: React.FC<{}> = () => {
           </h1>
           <p className='mt-2 mb-6'>
             リンクの追加・変更・削除などは、
-            <a href="https://github.com/aoirint/aoirint.com/issues">Issues</a>、
-            <a href="https://github.com/aoirint/aoirint.com/pulls">Pull requests</a>、
+            <a href="https://github.com/aoirint/aoirint-web-next/issues">Issues</a>、
+            <a href="https://github.com/aoirint/aoirint-web-next/pulls">Pull requests</a>、
             その他連絡先までお願いします。
           </p>
           <div className='columns is-multiline is-mobile'>
