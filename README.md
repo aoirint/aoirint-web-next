@@ -1,4 +1,4 @@
-# aoirint.com-next
+# aoirint-web-next
 
 ## Dependencies
 
