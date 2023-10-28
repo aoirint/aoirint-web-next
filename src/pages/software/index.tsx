@@ -155,14 +155,18 @@ const Softwares: React.FC<{}> = () => {
             <li>
               <NextLink href="/software/early/" passHref legacyBehavior>
                 <MuiLink>
-                  開発早期のソフトウェア
+                  <Typography component="span" lineHeight={2}>
+                    開発早期のソフトウェア
+                  </Typography>
                 </MuiLink>
               </NextLink>
             </li>
             <li>
               <NextLink href="/software/archive/" passHref legacyBehavior>
                 <MuiLink>
-                  メンテナンスを終了したソフトウェア
+                  <Typography component="span" lineHeight={2}>
+                    メンテナンスを終了したソフトウェア
+                  </Typography>
                 </MuiLink>
               </NextLink>
             </li>

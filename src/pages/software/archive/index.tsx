@@ -80,7 +80,9 @@ const ArchiveSoftwares: React.FC<{}> = () => {
             <li>
               <NextLink href="/software/" passHref legacyBehavior>
                 <MuiLink>
-                ソフトウェア一覧
+                  <Typography component="span" lineHeight={2}>
+                    ソフトウェア一覧
+                  </Typography>
                 </MuiLink>
               </NextLink>
             </li>
