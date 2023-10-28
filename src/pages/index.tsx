@@ -50,7 +50,7 @@ export default function Home() {
               width="96"
               height="96"
             />
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ px: 2.5, py: 2 }}>
               <Typography variant="h4">
                 aoirint
               </Typography>
