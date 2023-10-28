@@ -4,15 +4,14 @@ import useLastfmApiMiddleware from '@/api/useLastfmApiMiddleware'
 import useLiveinfoApiMiddlewareNicolive from '@/api/useLiveinfoApiMiddlewareNicolive'
 import useLiveinfoApiMiddlewareYtlive from '@/api/useLiveinfoApiMiddlewareYtlive'
 import LastfmApiMiddlewareCard from '@/components/LastfmApiMiddlewareCard'
-import LastfmApiMiddlewareCardMock from '@/components/LastfmApiMiddlewareCardMock'
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
-import LiveinfoApiMiddlewareNicoliveCardMock from '@/components/LiveinfoApiMiddlewareNicoliveCardMock'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
-import LiveinfoApiMiddlewareYtliveCardMock from '@/components/LiveinfoApiMiddlewareYtliveCardMock'
 import Navbar from '@/components/Navbar'
-import { Box, CssBaseline, Toolbar, Typography } from '@mui/material'
+import { Box, CssBaseline, Grid, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink  from 'next/link'
 
 export default function Home() {
   const {
@@ -41,7 +40,7 @@ export default function Home() {
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Box component="main" sx={{ p: 3, width: '100%' }}>
+        <Box component="main" sx={{ px: 5, py: 3, width: '100%' }}>
           <Toolbar />
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', py: 2 }}>
             <Image
@@ -71,55 +70,69 @@ export default function Home() {
           {ytliveProgram != null && ytliveProgram.isOnair ? (
             <LiveinfoApiMiddlewareYtliveCard program={ytliveProgram} />
           ) : ''}
-          <div className='container'>
-            <div className='columns'>
-              <div className='column my-2'>
-                <h2 className='title is-4'>
-                  最近の記事
-                </h2>
-                <ul>
-                  {posts.map((post) => (
-                    <li className='mb-2' key={post.url}>
-                      <a href={post.url} className='mb-2'>
-                        {post.title}
-                      </a>
-                      <div className='is-size-7'>
-                        {post.updatedAt != null ? (
-                          <>
-                            Updated: {post.updatedAt}
-                          </>
-                        ) : ''}
-                        {post.createdAt != null && post.updatedAt != null ? ' (' : ''}
-                        {post.createdAt != null ? (
-                          <>
-                            Created: {post.createdAt}
-                          </>
-                        ) : ''}
-                        {post.createdAt != null && post.updatedAt != null ? ')' : ''}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className='column my-2'>
-                <h2 className='title is-4'>
-                  最近のリポジトリ
-                </h2>
-                <ul>
-                  {repos.map((repo) => (
-                    <li className='mb-2' key={repo.url}>
-                      <a href={repo.url} className='mb-2'>
-                        {repo.title}
-                      </a>
-                      <div className='is-size-7'>
-                        Pushed: {repo.pushedAt} (Created: {repo.createdAt})
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          <Grid container spacing={2} sx={{ mt: 1 }}>
+            <Grid item xs={6}>
+              <Typography variant="h5" gutterBottom>
+                最近の記事
+              </Typography>
+              <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                {posts.map((post) => (
+                  <ListItem key={post.url} disablePadding>
+                    <ListItemText
+                      primary={
+                        <NextLink href={post.url} passHref legacyBehavior>
+                          <MuiLink>
+                            {post.title}
+                          </MuiLink>
+                        </NextLink>
+                      }
+                      secondary={
+                        <Typography variant="subtitle2" color="text.secondary">
+                          {post.updatedAt != null ? (
+                            <>
+                              Updated: {post.updatedAt}
+                            </>
+                          ) : ''}
+                          {post.createdAt != null && post.updatedAt != null ? ' (' : ''}
+                          {post.createdAt != null ? (
+                            <>
+                              Created: {post.createdAt}
+                            </>
+                          ) : ''}
+                          {post.createdAt != null && post.updatedAt != null ? ')' : ''}
+                        </Typography>
+                      }
+                      />
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h5" gutterBottom>
+                最近のリポジトリ
+              </Typography>
+              <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                {repos.map((repo) => (
+                  <ListItem key={repo.url} disablePadding>
+                    <ListItemText
+                      primary={
+                        <NextLink href={repo.url} passHref legacyBehavior>
+                          <MuiLink>
+                            {repo.title}
+                          </MuiLink>
+                        </NextLink>
+                      }
+                      secondary={
+                        <Typography variant="subtitle2" color="text.secondary">
+                          Pushed: {repo.pushedAt} (Created: {repo.createdAt})
+                        </Typography>
+                      }
+                      />
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </>
