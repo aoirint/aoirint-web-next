@@ -151,22 +151,22 @@ const Softwares: React.FC<{}> = () => {
           <Typography variant="h5" sx={{ mt: 3 }}>
             その他のソフトウェア
           </Typography>
-            <ul>
-              <li>
-                <NextLink href="/software/early/" passHref legacyBehavior>
-                  <MuiLink>
+          <ul>
+            <li>
+              <NextLink href="/software/early/" passHref legacyBehavior>
+                <MuiLink>
                   開発早期のソフトウェア
-                  </MuiLink>
-                </NextLink>
-              </li>
-              <li>
-                <NextLink href="/software/archive/" passHref legacyBehavior>
-                  <MuiLink>
+                </MuiLink>
+              </NextLink>
+            </li>
+            <li>
+              <NextLink href="/software/archive/" passHref legacyBehavior>
+                <MuiLink>
                   メンテナンスを終了したソフトウェア
-                  </MuiLink>
-                </NextLink>
-              </li>
-            </ul>
+                </MuiLink>
+              </NextLink>
+            </li>
+          </ul>
         </Container>
       </Box>
     </>
