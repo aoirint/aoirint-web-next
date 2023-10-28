@@ -22,7 +22,7 @@ interface NavItem {
   isMe?: boolean
 }
 
-const navItems: NavItem[] = [
+const leftNavItems: NavItem[] = [
   {
     text: "ホーム",
     href: "/",
@@ -46,6 +46,29 @@ const navItems: NavItem[] = [
   },
 ]
 
+const rightNavItems: NavItem[] = [
+  {
+    text: "Blog",
+    href: "https://blog.aoirint.com/",
+    isMe: true,
+  },
+  {
+    text: "GitHub",
+    href: "https://github.com/aoirint",
+    isMe: true,
+  },
+  {
+    text: "Twitter",
+    href: "https://twitter.com/aoirint",
+    isMe: true,
+  },
+  {
+    text: "Fediverse",
+    href: "https://mstdn.aoirint.com/@aoirint",
+    isMe: true,
+  },
+]
+
 const Navbar: React.FC<{}> = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
@@ -62,7 +85,21 @@ const Navbar: React.FC<{}> = () => {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {leftNavItems.map((item) => (
+          <ListItem key={item.text} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <NextLink href={item.href} passHref legacyBehavior>
+                <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
+                  <ListItemText primary={item.text} />
+                </MuiLink>
+              </NextLink>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {rightNavItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <NextLink href={item.href} passHref legacyBehavior>
@@ -76,7 +113,7 @@ const Navbar: React.FC<{}> = () => {
       </List>
     </Box>
   )
-
+  
   return (
     <>
       <AppBar component="nav">
@@ -86,11 +123,11 @@ const Navbar: React.FC<{}> = () => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <NextLink href="/" passHref legacyBehavior>
               <MuiLink color="inherit" underline="none">
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -111,16 +148,31 @@ const Navbar: React.FC<{}> = () => {
               </MuiLink>
             </NextLink>
           </Box>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item.text} sx={{ color: '#fff' }}>
-                <NextLink href={item.href} passHref legacyBehavior>
-                  <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
-                    {item.text}
-                  </MuiLink>
-                </NextLink>
-              </Button>
-            ))}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Box sx={{ mx: 1 }}>
+                {leftNavItems.map((item) => (
+                  <Button key={item.text} sx={{ color: '#fff' }}>
+                    <NextLink href={item.href} passHref legacyBehavior>
+                      <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
+                        {item.text}
+                      </MuiLink>
+                    </NextLink>
+                  </Button>
+                ))}
+              </Box>
+              <Box>
+                {rightNavItems.map((item) => (
+                  <Button key={item.text} sx={{ color: '#fff' }}>
+                    <NextLink href={item.href} passHref legacyBehavior>
+                      <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
+                        {item.text}
+                      </MuiLink>
+                    </NextLink>
+                  </Button>
+                ))}
+              </Box>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
@@ -133,29 +185,13 @@ const Navbar: React.FC<{}> = () => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
       </nav>
-      {/*
-        <div className="navbar-end">
-          <a className="navbar-item" href="https://blog.aoirint.com/">
-            Blog
-          </a>
-          <a className="navbar-item" rel="me" href="https://github.com/aoirint">
-            GitHub
-          </a>
-          <a className="navbar-item" rel="me" href="https://twitter.com/aoirint">
-            Twitter
-          </a>
-          <a className="navbar-item" rel="me" href="https://mstdn.aoirint.com/@aoirint">
-            Fediverse
-          </a>
-        </div>
-      */}
     </>
   )
 }
