@@ -7,7 +7,7 @@ import LastfmApiMiddlewareCard from '@/components/LastfmApiMiddlewareCard'
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
 import Navbar from '@/components/Navbar'
-import { Box, CssBaseline, Grid, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
+import { Box, Container, CssBaseline, Grid, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material'
 import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -40,7 +40,7 @@ export default function Home() {
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Box component="main" sx={{ px: 5, py: 3, width: '100%' }}>
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
           <Toolbar />
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', py: 2 }}>
             <Image
@@ -133,7 +133,7 @@ export default function Home() {
               </List>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
     </>
   )
