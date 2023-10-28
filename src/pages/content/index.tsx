@@ -1,7 +1,9 @@
 import React from 'react'
-import Image from 'next/image'
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, CssBaseline, Grid, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
+import NextLink  from 'next/link'
 
 interface ContentCard {
   title: string
@@ -43,43 +45,55 @@ const Contents: React.FC<{}> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             コンテンツ
-          </h1>
-          <h2 className='subtitle is-6 mb-4'>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
             技術情報の発信をしています
-          </h2>
-          <div className='columns is-multiline'>
+          </Typography>
+          <Grid container spacing={2}>
             {cards.map((card, cardIndex) => (
-              <div key={cardIndex} className='column is-full is-half-desktop'>
-                <div className='box'>
-                  <article className="media">
-                    <div className="media-left">
-                      <figure className="image is-1by1 is-64x64">
-                        <Image src={card.image} alt={card.imageAlt} width="96" height="96" />
-                      </figure>
-                    </div>
-                    <div className="media-content">
-                      <div className="content">
-                        <h3 className='title is-4 mb-2'>{card.title}</h3>
-                        <p className='mb-3'>
-                          {card.description}
-                        </p>
-                        <div className='buttons'>
-                          <a href={card.url} className="button is-primary">見てみる</a>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </div>
+              <Grid item xs={6} key={cardIndex} sx={{ display: 'flex' }}>
+                <Card sx={{ display: 'flex', p: 2 }}>
+                  <Box sx={{ my: 1 }}>
+                    <CardMedia
+                      sx={{ width: 64, height: 64 }}
+                      image={card.image}
+                      title={card.imageAlt}
+                    />
+                  </Box>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
+                    <CardContent sx={{ py: 0 }}>
+                      <Typography variant="h6" component="div">
+                          {card.title}
+                      </Typography>
+                      <Typography variant="subtitle2" color="text.secondary">
+                        {card.description}
+                      </Typography>
+                    </CardContent>
+                    <CardActions sx={{ ml: 1 }}>
+                      {card.url != null ? (
+                        <Button size="medium" variant="contained" color="primary">
+                          <NextLink href={card.url} passHref legacyBehavior>
+                            <MuiLink color="inherit" underline="none">
+                              見てみる
+                            </MuiLink>
+                          </NextLink>
+                        </Button>
+                      ) : ''}
+                    </CardActions>
+                  </Box>
+                </Card>
+              </Grid>
             ))}
-          </div>
-        </div>
-      </section>
+          </Grid>
+        </Container>
+      </Box>
     </>
   )
 }
