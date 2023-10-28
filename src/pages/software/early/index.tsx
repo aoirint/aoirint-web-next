@@ -1,7 +1,9 @@
 import Navbar from '@/components/Navbar'
 import SoftwareCardList, { SoftwareCard } from '@/components/SoftwareCardList'
+import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
-import Link from 'next/link'
+import MuiLink from '@mui/material/Link'
+import NextLink  from 'next/link'
 import React from 'react'
 
 const earlySoftwareCards: SoftwareCard[] = [
@@ -15,34 +17,38 @@ const EarlySoftwares: React.FC<{}> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             開発早期のソフトウェア
-          </h1>
-          <h2 className='subtitle is-6 mb-4'>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
             アルファ版・ベータ版の開発早期段階にあるソフトウェアを紹介します
-          </h2>
+          </Typography>
           {earlySoftwareCards.length > 0 ? (
             <SoftwareCardList cards={earlySoftwareCards} />
           ) : (
-            <p className='content'>
+            <Typography variant="body1">
               現在、項目はありません。
-            </p>
+            </Typography>
           )}
-          <h2 className='title is-4 mt-5'>
+          <Typography variant="h5" sx={{ mt: 3 }}>
             その他のソフトウェア
-          </h2>
-          <p className='content'>
-            <ul>
-              <li>
-                <Link href="/software/">ソフトウェア一覧</Link>
-              </li>
-            </ul>
-          </p>
-        </div>
-      </section>
+          </Typography>
+          <ul>
+            <li>
+              <NextLink href="/software/" passHref legacyBehavior>
+                <MuiLink>
+                ソフトウェア一覧
+                </MuiLink>
+              </NextLink>
+            </li>
+          </ul>
+        </Container>
+      </Box>
     </>
   )
 }
