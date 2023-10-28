@@ -58,8 +58,8 @@ const Contents: React.FC<{}> = () => {
           </Typography>
           <Grid container spacing={2}>
             {cards.map((card, cardIndex) => (
-              <Grid item xs={6} key={cardIndex} sx={{ display: 'flex' }}>
-                <Card sx={{ display: 'flex', p: 2 }}>
+              <Grid item xs={12} md={6} key={cardIndex}>
+                <Card sx={{ display: 'flex', height: '100%', p: 2 }}>
                   <Box sx={{ my: 1 }}>
                     <CardMedia
                       sx={{ width: 64, height: 64 }}
@@ -67,7 +67,7 @@ const Contents: React.FC<{}> = () => {
                       title={card.imageAlt}
                     />
                   </Box>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
+                  <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <CardContent sx={{ py: 0 }}>
                       <Typography variant="h6" component="div">
                           {card.title}

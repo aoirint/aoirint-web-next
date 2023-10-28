@@ -26,8 +26,8 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
   return (
     <Grid container spacing={2}>
       {cards.map((card, cardIndex) => (
-        <Grid item xs={6} key={cardIndex}>
-          <Card sx={{ display: 'flex', p: 2 }}>
+        <Grid item xs={12} md={6} key={cardIndex}>
+          <Card sx={{ display: 'flex', height: '100%', p: 2 }}>
             <Box sx={{ my: 1 }}>
               <CardMedia
                 sx={{ width: 64, height: 64 }}
@@ -35,7 +35,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                 title={card.imageAlt}
               />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'  }}>
               <CardContent sx={{ py: 0 }}>
                 <Typography variant="h6" component="div">
                     {card.title}
