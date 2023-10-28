@@ -4,6 +4,7 @@ import useLastfmApiMiddleware from '@/api/useLastfmApiMiddleware'
 import useLiveinfoApiMiddlewareNicolive from '@/api/useLiveinfoApiMiddlewareNicolive'
 import useLiveinfoApiMiddlewareYtlive from '@/api/useLiveinfoApiMiddlewareYtlive'
 import LastfmApiMiddlewareCard from '@/components/LastfmApiMiddlewareCard'
+import LastfmApiMiddlewareCardMock from '@/components/LastfmApiMiddlewareCardMock'
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
 import Navbar from '@/components/Navbar'
@@ -35,10 +36,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Box component="main" sx={{ p: 3 }}>
+        <Box component="main" sx={{ p: 3, width: '100%' }}>
           <Toolbar />
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', py: 2 }}>
             <Image
@@ -51,7 +52,10 @@ export default function Home() {
               <Typography variant="h4">
                 aoirint
               </Typography>
-              <Typography variant="subtitle1">
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+              >
                 技術とさぶかる
               </Typography>
             </Box>
