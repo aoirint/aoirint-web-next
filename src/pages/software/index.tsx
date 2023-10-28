@@ -1,7 +1,9 @@
 import Navbar from '@/components/Navbar'
 import SoftwareCardList, { SoftwareCard } from '@/components/SoftwareCardList'
+import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
-import Link from 'next/link'
+import MuiLink from '@mui/material/Link'
+import NextLink  from 'next/link'
 import React from 'react'
 
 const softwareCards: SoftwareCard[] = [
@@ -121,44 +123,53 @@ const Softwares: React.FC<{}> = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             ソフトウェア
-          </h1>
-          <h2 className='subtitle is-6 mb-4'>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
             WebアプリやChrome拡張機能、生産性向上ツールを開発しています
-          </h2>
+          </Typography>
           <SoftwareCardList cards={softwareCards} />
-          <h2 className='title is-4 mt-5'>
+          <Typography variant="h5" sx={{ mt: 3 }}>
             開発者向けライブラリ
-          </h2>
-          <h3 className='subtitle is-6 mb-4'>
+          </Typography>
+          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
             開発者向けのライブラリ・パッケージを開発しています
-          </h3>
+          </Typography>
           <SoftwareCardList cards={libraryCards} />
-          <h2 className='title is-4 mt-5'>
+          <Typography variant="h5" sx={{ mt: 3 }}>
             Dockerイメージ
-          </h2>
-          <h3 className='subtitle is-6 mb-4'>
+          </Typography>
+          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
             OSSソフトウェアをDockerイメージ化しています
-          </h3>
+          </Typography>
           <SoftwareCardList cards={dockerImageCards} />
-          <h2 className='title is-4 mt-5'>
+          <Typography variant="h5" sx={{ mt: 3 }}>
             その他のソフトウェア
-          </h2>
-          <p className='content'>
+          </Typography>
             <ul>
               <li>
-                <Link href="/software/early/">開発早期のソフトウェア</Link>
+                <NextLink href="/software/early/" passHref legacyBehavior>
+                  <MuiLink>
+                  開発早期のソフトウェア
+                  </MuiLink>
+                </NextLink>
               </li>
               <li>
-                <Link href="/software/archive/">メンテナンスを終了したソフトウェア</Link>
+                <NextLink href="/software/archive/" passHref legacyBehavior>
+                  <MuiLink>
+                  メンテナンスを終了したソフトウェア
+                  </MuiLink>
+                </NextLink>
               </li>
             </ul>
-          </p>
-        </div>
-      </section>
+        </Container>
+      </Box>
     </>
   )
 }
