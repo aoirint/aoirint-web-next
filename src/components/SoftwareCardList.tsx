@@ -44,7 +44,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   {card.description}
                 </Typography>
               </CardContent>
-              <CardActions>
+              <CardActions sx={{ ml: 1 }}>
                 {card.useUrl != null ? (
                   <Button size="small" variant="contained" color="primary">
                     <NextLink href={card.useUrl} passHref legacyBehavior>
