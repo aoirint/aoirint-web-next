@@ -1,8 +1,8 @@
-import { NicoliveProgram } from '@/api/useLiveinfoApiMiddlewareNicolive'
-import NextLink  from 'next/link'
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material'
-import MuiLink from '@mui/material/Link'
 import React from 'react'
+import NextLink  from 'next/link'
+import { Box, Card, CardContent, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
+import { NicoliveProgram } from '@/api/useLiveinfoApiMiddlewareNicolive'
 
 interface LiveinfoApiMiddlewareNicoliveCardProps {
   program: NicoliveProgram

@@ -8,6 +8,7 @@ import LastfmApiMiddlewareCardMock from '@/components/LastfmApiMiddlewareCardMoc
 import LiveinfoApiMiddlewareNicoliveCard from '@/components/LiveinfoApiMiddlewareNicoliveCard'
 import LiveinfoApiMiddlewareNicoliveCardMock from '@/components/LiveinfoApiMiddlewareNicoliveCardMock'
 import LiveinfoApiMiddlewareYtliveCard from '@/components/LiveinfoApiMiddlewareYtliveCard'
+import LiveinfoApiMiddlewareYtliveCardMock from '@/components/LiveinfoApiMiddlewareYtliveCardMock'
 import Navbar from '@/components/Navbar'
 import { Box, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
@@ -67,10 +68,10 @@ export default function Home() {
           {nicoliveProgram != null && nicoliveProgram.isOnair ? (
             <LiveinfoApiMiddlewareNicoliveCard program={nicoliveProgram} />
           ) : ''}
+          {ytliveProgram != null && ytliveProgram.isOnair ? (
+            <LiveinfoApiMiddlewareYtliveCard program={ytliveProgram} />
+          ) : ''}
           <div className='container'>
-            {ytliveProgram != null && ytliveProgram.isOnair ? (
-              <LiveinfoApiMiddlewareYtliveCard program={ytliveProgram} />
-            ) : ''}
             <div className='columns'>
               <div className='column my-2'>
                 <h2 className='title is-4'>
