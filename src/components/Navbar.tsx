@@ -40,6 +40,10 @@ const navItems: NavItem[] = [
     href: "/social/",
     isMe: true,
   },
+  {
+    text: "その他",
+    href: "/misc/",
+  },
 ]
 
 const Navbar: React.FC<{}> = () => {
