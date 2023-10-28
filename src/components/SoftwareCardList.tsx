@@ -46,7 +46,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
               </CardContent>
               <CardActions sx={{ ml: 1 }}>
                 {card.useUrl != null ? (
-                  <Button size="small" variant="contained" color="primary">
+                  <Button size="medium" variant="contained" color="primary">
                     <NextLink href={card.useUrl} passHref legacyBehavior>
                       <MuiLink color="inherit" underline="none">
                         使ってみる
@@ -55,7 +55,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   </Button>
                 ) : ''}
                 {card.archiveUrl != null ? (
-                  <Button size="small" variant="outlined" color="info">
+                  <Button size="medium" variant="outlined" color="info">
                     <NextLink href={card.archiveUrl} passHref legacyBehavior>
                       <MuiLink color="inherit" underline="none">
                         跡地
@@ -64,7 +64,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   </Button>
                 ) : ''}
                 {card.sourceCodeUrl != null ? (
-                  <Button size="small" variant="outlined" color="info">
+                  <Button size="medium" variant="outlined" color="info">
                     <NextLink href={card.sourceCodeUrl} passHref legacyBehavior>
                       <MuiLink color="inherit" underline="none">
                         ソースコード
@@ -73,7 +73,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   </Button>
                 ) : ''}
                 {card.sourceProjectUrl != null ? (
-                  <Button size="small" variant="outlined" color="info">
+                  <Button size="medium" variant="outlined" color="info">
                     <NextLink href={card.sourceProjectUrl} passHref legacyBehavior>
                       <MuiLink color="inherit" underline="none">
                         本体ソースコード
@@ -82,7 +82,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                   </Button>
                 ) : ''}
                 {card.detailUrl != null ? (
-                  <Button size="small" variant="outlined" color="info">
+                  <Button size="medium" variant="outlined" color="info">
                     <NextLink href={card.detailUrl} passHref legacyBehavior>
                       <MuiLink color="inherit" underline="none">
                         詳細
