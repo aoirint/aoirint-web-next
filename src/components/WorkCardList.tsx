@@ -4,7 +4,6 @@ import {
   CardContent,
   CardMedia,
   Grid,
-  Stack,
   Typography,
 } from '@mui/material'
 import NextLink from 'next/link'
@@ -27,9 +26,8 @@ const WorkCardList: React.FC<WorkCardListProps> = ({ cards }) => {
   return (
     <Grid container spacing={2} direction='row' justifyContent='start'>
       {cards.map((card, cardIndex) => (
-        <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Grid key={cardIndex} item xs={12} sm={6} md={4} lg={3}>
           <Card
-            key={cardIndex}
             sx={{
               height: '100%',
             }}
