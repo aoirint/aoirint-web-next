@@ -1,39 +1,36 @@
-
-import dayjs from "dayjs";
-import Head from "next/head";
-import * as React from "react";
-import useMinecraftBedrockServerStatusList from "@/api/useMinecraftBedrockServerStatusList";
-import useMinecraftJavaServerStatusList from "@/api/useMinecraftJavaServerStatusList";
-import Navbar from "@/components/Navbar";
+import dayjs from 'dayjs'
+import Head from 'next/head'
+import * as React from 'react'
+import useMinecraftBedrockServerStatusList from '@/api/useMinecraftBedrockServerStatusList'
+import useMinecraftJavaServerStatusList from '@/api/useMinecraftJavaServerStatusList'
+import Navbar from '@/components/Navbar'
 
 const MinecraftPage: React.FC<{}> = () => {
   const { loading: bedrockServerStatusListLoading, bedrockServerStatusList } =
-    useMinecraftBedrockServerStatusList();
+    useMinecraftBedrockServerStatusList()
   const { loading: javaServerStatusListLoading, javaServerStatusList } =
-    useMinecraftJavaServerStatusList();
+    useMinecraftJavaServerStatusList()
 
   return (
     <>
       <Head>
         <title>Minecraft Servers - aoirint</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
-      <section className="section">
-        <div className="container">
-          <h1 className="title">Minecraftサーバーの稼働状況</h1>
-          <p className="pb-4">このページは試験的なものです。</p>
-          <p className="pb-4">
-            現在、すべてのサーバーはホワイトリスト制であり、プライベートです。
-          </p>
-          <div className="columns is-multiline">
-            <div className="column is-12 my-2">
-              <h2 className="title is-5">統合版</h2>
+      <section className='section'>
+        <div className='container'>
+          <h1 className='title'>Minecraftサーバーの稼働状況</h1>
+          <p className='pb-4'>このページは試験的なものです。</p>
+          <p className='pb-4'>現在、すべてのサーバーはホワイトリスト制であり、プライベートです。</p>
+          <div className='columns is-multiline'>
+            <div className='column is-12 my-2'>
+              <h2 className='title is-5'>統合版</h2>
               {bedrockServerStatusListLoading ? (
                 <p>読み込み中</p>
               ) : (
-                <table className="table">
+                <table className='table'>
                   <tbody>
                     <tr>
                       <th>サーバー名</th>
@@ -49,19 +46,13 @@ const MinecraftPage: React.FC<{}> = () => {
                         </td>
                         <td>
                           {bedrockServerStatus.ok ? (
-                            <span className="tag is-success is-medium">
-                              稼働中
-                            </span>
+                            <span className='tag is-success is-medium'>稼働中</span>
                           ) : (
-                            <span className="tag is-danger is-medium">
-                              停止中
-                            </span>
+                            <span className='tag is-danger is-medium'>停止中</span>
                           )}
                         </td>
                         <td>
-                          {dayjs(bedrockServerStatus.timestamp).format(
-                            "YYYY-MM-DDTHH:mm:ssZ",
-                          )}
+                          {dayjs(bedrockServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}
                         </td>
                       </tr>
                     ))}
@@ -69,12 +60,12 @@ const MinecraftPage: React.FC<{}> = () => {
                 </table>
               )}
             </div>
-            <div className="column is-12 my-2">
-              <h2 className="title is-5">Java版</h2>
+            <div className='column is-12 my-2'>
+              <h2 className='title is-5'>Java版</h2>
               {javaServerStatusListLoading ? (
                 <p>読み込み中</p>
               ) : (
-                <table className="table">
+                <table className='table'>
                   <tbody>
                     <tr>
                       <th>サーバー名</th>
@@ -90,20 +81,12 @@ const MinecraftPage: React.FC<{}> = () => {
                         </td>
                         <td>
                           {javaServerStatus.ok ? (
-                            <span className="tag is-success is-medium">
-                              稼働中
-                            </span>
+                            <span className='tag is-success is-medium'>稼働中</span>
                           ) : (
-                            <span className="tag is-danger is-medium">
-                              停止中
-                            </span>
+                            <span className='tag is-danger is-medium'>停止中</span>
                           )}
                         </td>
-                        <td>
-                          {dayjs(javaServerStatus.timestamp).format(
-                            "YYYY-MM-DDTHH:mm:ssZ",
-                          )}
-                        </td>
+                        <td>{dayjs(javaServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -111,21 +94,15 @@ const MinecraftPage: React.FC<{}> = () => {
               )}
             </div>
           </div>
-          <p className="is-size-7">
-            Powered by{" "}
-            <a href="https://github.com/aoirint/aoirint_mcping_server">
-              aoirint_mcping_server
-            </a>{" "}
-            +{" "}
-            <a href="https://github.com/aoirint/aoirint_mcping_bff">
-              aoirint_mcping_bff
-            </a>
-            .
+          <p className='is-size-7'>
+            Powered by{' '}
+            <a href='https://github.com/aoirint/aoirint_mcping_server'>aoirint_mcping_server</a> +{' '}
+            <a href='https://github.com/aoirint/aoirint_mcping_bff'>aoirint_mcping_bff</a>.
           </p>
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default MinecraftPage;
+export default MinecraftPage

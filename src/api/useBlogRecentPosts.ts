@@ -1,63 +1,58 @@
-import dayjs from "dayjs";
-import React from "react";
+import dayjs from 'dayjs'
+import React from 'react'
 
 export interface Post {
-  title: string;
-  url: string;
-  createdAt?: string;
-  updatedAt?: string;
+  title: string
+  url: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 const useBlogRecentPosts = () => {
-  const [loading, setLoading] = React.useState<boolean>(true);
-  const [posts, setPosts] = React.useState<Post[]>([]);
+  const [loading, setLoading] = React.useState<boolean>(true)
+  const [posts, setPosts] = React.useState<Post[]>([])
 
   React.useEffect(() => {
     if (loading) {
-      fetch("https://blog.aoirint.com/rss.xml")
+      fetch('https://blog.aoirint.com/rss.xml')
         .then((data) => data.text())
         .then((data) => {
-          const parser = new DOMParser();
+          const parser = new DOMParser()
 
-          const xml = parser.parseFromString(data, "text/xml");
-          const entries = Array.from(xml.querySelectorAll("item"));
+          const xml = parser.parseFromString(data, 'text/xml')
+          const entries = Array.from(xml.querySelectorAll('item'))
           const posts = entries.map((entry) => {
-            const title = entry.querySelector("title")?.textContent ?? "";
-            const url = entry.querySelector("link")?.textContent ?? "";
+            const title = entry.querySelector('title')?.textContent ?? ''
+            const url = entry.querySelector('link')?.textContent ?? ''
 
-            const pubDate = entry.querySelector("pubDate")?.textContent ?? "";
-            const atomUpdated =
-              entry.getElementsByTagName("atom:updated")?.[0]?.textContent ??
-              "";
+            const pubDate = entry.querySelector('pubDate')?.textContent ?? ''
+            const atomUpdated = entry.getElementsByTagName('atom:updated')?.[0]?.textContent ?? ''
 
-            const createdAt =
-              pubDate !== "" ? dayjs(pubDate).format("YYYY-MM-DD") : undefined;
+            const createdAt = pubDate !== '' ? dayjs(pubDate).format('YYYY-MM-DD') : undefined
             const updatedAt =
-              atomUpdated !== ""
-                ? dayjs(atomUpdated).format("YYYY-MM-DD")
-                : undefined;
+              atomUpdated !== '' ? dayjs(atomUpdated).format('YYYY-MM-DD') : undefined
 
             return {
               title,
               url,
               createdAt,
               updatedAt,
-            };
-          });
+            }
+          })
 
-          setPosts(posts);
-          setLoading(false);
+          setPosts(posts)
+          setLoading(false)
         })
         .catch((error: unknown) => {
-          console.error(error);
-        });
+          console.error(error)
+        })
     }
-  });
+  })
 
   return {
     loading,
     posts,
-  };
-};
+  }
+}
 
-export default useBlogRecentPosts;
+export default useBlogRecentPosts
