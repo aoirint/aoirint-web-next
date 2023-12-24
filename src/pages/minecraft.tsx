@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Grid, Box, Container, CssBaseline, Toolbar, Typography, Table, TableBody, TableRow, TableCell, TableHead } from '@mui/material'
+
 import dayjs from 'dayjs'
 import Navbar from '@/components/Navbar'
 import Head from 'next/head'
@@ -17,89 +19,125 @@ const MinecraftPage: React.FC<{}> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             Minecraftサーバーの稼働状況
-          </h1>
-          <p className='pb-4'>
-            このページは試験的なものです。
-          </p>
-          <p className='pb-4'>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+            このページは試験的なものです
+          </Typography>
+          <Typography variant="body1" sx={{ my: 2 }}>
             現在、すべてのサーバーはホワイトリスト制であり、プライベートです。
-          </p>
-          <div className='columns is-multiline'>
-            <div className='column is-12 my-2'>
-              <h2 className='title is-5'>
+          </Typography>
+          <Grid container spacing={4} sx={{ mt: 2 }}>
+            <Grid item xs={12}>
+              <Typography variant="h5">
                 統合版
-              </h2>
+              </Typography>
               {bedrockServerStatusListLoading ? (
                 <p>
                   読み込み中
                 </p>
               ) : (
-                <table className='table'>
-                  <tbody>
-                    <tr>
-                      <th>サーバー名</th>
-                      <th>アドレス</th>
-                      <th>稼働状態</th>
-                      <th>確認時刻</th>
-                    </tr>
+                <Table size="medium">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        サーバー名
+                      </TableCell>
+                      <TableCell>
+                        アドレス
+                      </TableCell>
+                      <TableCell>
+                        稼働状態
+                      </TableCell>
+                      <TableCell>
+                        確認時刻
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
                     {bedrockServerStatusList?.map((bedrockServerStatus) => (
-                      <tr key={bedrockServerStatus.id}>
-                        <td>{bedrockServerStatus.name}</td>
-                        <td><code>{`${bedrockServerStatus.host}:${bedrockServerStatus.port}`}</code></td>
-                        <td>{bedrockServerStatus.ok ?
-                          <span className="tag is-success is-medium">稼働中</span>
-                          : <span className="tag is-danger is-medium">停止中</span>}
-                        </td>
-                        <td>{dayjs(bedrockServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}</td>
-                      </tr>
+                      <TableRow key={bedrockServerStatus.id}>
+                        <TableCell>
+                          {bedrockServerStatus.name}
+                        </TableCell>
+                        <TableCell>
+                          <code>{`${bedrockServerStatus.host}:${bedrockServerStatus.port}`}</code>
+                        </TableCell>
+                        <TableCell>
+                          {bedrockServerStatus.ok ?
+                            <span className="tag is-success is-medium">稼働中</span>
+                            : <span className="tag is-danger is-medium">停止中</span>}
+                        </TableCell>
+                        <TableCell>
+                          {dayjs(bedrockServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}
+                        </TableCell>
+                      </TableRow>
                     ))}
-                  </tbody>
-                </table>
+                  </TableBody>
+                </Table>
               )}
-            </div>
-            <div className='column is-12 my-2'>
-              <h2 className='title is-5'>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h5">
                 Java版
-              </h2>
+              </Typography>
               {javaServerStatusListLoading ? (
                 <p>
                   読み込み中
                 </p>
               ) : (
-                <table className='table'>
-                  <tbody>
-                    <tr>
-                      <th>サーバー名</th>
-                      <th>アドレス</th>
-                      <th>稼働状態</th>
-                      <th>確認時刻</th>
-                    </tr>
+                <Table size="medium">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>
+                        サーバー名
+                      </TableCell>
+                      <TableCell>
+                        アドレス
+                      </TableCell>
+                      <TableCell>
+                        稼働状態
+                      </TableCell>
+                      <TableCell>
+                        確認時刻
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
                     {javaServerStatusList?.map((javaServerStatus) => (
-                      <tr key={javaServerStatus.id}>
-                        <td>{javaServerStatus.name}</td>
-                        <td><code>{`${javaServerStatus.host}:${javaServerStatus.port}`}</code></td>
-                        <td>{javaServerStatus.ok ?
-                          <span className="tag is-success is-medium">稼働中</span>
-                          : <span className="tag is-danger is-medium">停止中</span>}
-                        </td>
-                        <td>{dayjs(javaServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}</td>
-                      </tr>
+                      <TableRow key={javaServerStatus.id}>
+                        <TableCell>
+                          {javaServerStatus.name}
+                        </TableCell>
+                        <TableCell>
+                          <code>{`${javaServerStatus.host}:${javaServerStatus.port}`}</code>
+                        </TableCell>
+                        <TableCell>
+                          {javaServerStatus.ok ?
+                            <span className="tag is-success is-medium">稼働中</span>
+                            : <span className="tag is-danger is-medium">停止中</span>}
+                        </TableCell>
+                        <TableCell>
+                          {dayjs(javaServerStatus.timestamp).format('YYYY-MM-DDTHH:mm:ssZ')}
+                        </TableCell>
+                      </TableRow>
                     ))}
-                  </tbody>
-                </table>
+                  </TableBody>
+                </Table>
               )}
-            </div>
-          </div>
-          <p className="is-size-7">
+            </Grid>
+          </Grid>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 4 }}>
             Powered by <a href="https://github.com/aoirint/aoirint_mcping_server">aoirint_mcping_server</a> + <a href="https://github.com/aoirint/aoirint_mcping_bff">aoirint_mcping_bff</a>.
-          </p>
-        </div>
-      </section>
+          </Typography>
+        </Container>
+      </Box>
     </>
   )
 }
