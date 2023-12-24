@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Stack, Typography } from '@mui/material'
 import NextLink  from 'next/link'
 
 export interface WorkCard {
@@ -19,15 +19,25 @@ const WorkCardList: React.FC<WorkCardListProps> = ({
   cards,
 }) => {
   return (
-    <Grid container spacing={2}>
+    <Grid
+      container
+      spacing={2}
+      direction="row"
+      justifyContent="start"
+    >
       {cards.map((card, cardIndex) => (
-        <Grid item xs={12} lg={3} key={cardIndex}>
-          <Card>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <Card
+            key={cardIndex}
+            sx={{
+              height: "100%",
+            }}
+          >
             <CardActionArea
               LinkComponent={NextLink}
               href={card.url}
               sx={{
-                p: 2,
+                height: "100%",
               }}
             >
               <CardMedia
@@ -40,7 +50,11 @@ const WorkCardList: React.FC<WorkCardListProps> = ({
                   objectFit: "fill",
                 }}
               />
-              <CardContent>
+              <CardContent
+                sx={{
+                  px: 2,
+                }}
+              >
                 <Typography variant="h6" component="div">
                   {card.title}
                 </Typography>
