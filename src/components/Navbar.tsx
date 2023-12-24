@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import NextLink from 'next/link'
 import React from 'react'
+import { miscExternalLinks, miscInternalLinks, miscStatusLinks } from '@/models/misc_links'
 import { socialAccounts } from '@/models/social_accounts'
 
 interface NavItem {
@@ -38,13 +39,13 @@ const leftNavItems: Array<NavItem> = [
     text: 'コンテンツ',
     href: '/content/',
   },
+]
+
+const leftMobileNavItems: Array<NavItem> = [
   {
     text: 'その他',
     href: '/misc/',
   },
-]
-
-const leftMobileNavItems: Array<NavItem> = [
   {
     text: 'ソーシャル',
     href: '/social/',
@@ -116,6 +117,9 @@ export default function Navbar(): JSX.Element {
   )
   const socialMenuOpen = Boolean(socialMenuAnchorElement)
 
+  const [miscMenuAnchorElement, setMiscMenuAnchorElement] = React.useState<HTMLElement | null>(null)
+  const miscMenuOpen = Boolean(miscMenuAnchorElement)
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState)
   }
@@ -126,6 +130,14 @@ export default function Navbar(): JSX.Element {
 
   const handleSocialMenuClose = () => {
     setSocialMenuAnchorElement(null)
+  }
+
+  const handleMiscMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMiscMenuAnchorElement(event.currentTarget)
+  }
+
+  const handleMiscMenuClose = () => {
+    setMiscMenuAnchorElement(null)
   }
 
   const drawerWidth = 240
@@ -151,6 +163,43 @@ export default function Navbar(): JSX.Element {
         ))}
       </List>
     </Box>
+  )
+
+  const miscMenu = (
+    <Menu anchorEl={miscMenuAnchorElement} open={miscMenuOpen} onClose={handleMiscMenuClose}>
+      {miscInternalLinks.map((miscLink, miscLinkIndx) => (
+        <MenuItem
+          key={miscLinkIndx}
+          href={miscLink.href}
+          onClick={handleMiscMenuClose}
+          disableRipple
+        >
+          {miscLink.text}
+        </MenuItem>
+      ))}
+      <Divider />
+      {miscStatusLinks.map((miscLink, miscLinkIndx) => (
+        <MenuItem
+          key={miscLinkIndx}
+          href={miscLink.href}
+          onClick={handleMiscMenuClose}
+          disableRipple
+        >
+          {miscLink.text}
+        </MenuItem>
+      ))}
+      <Divider />
+      {miscExternalLinks.map((miscLink, miscLinkIndx) => (
+        <MenuItem
+          key={miscLinkIndx}
+          href={miscLink.href}
+          onClick={handleMiscMenuClose}
+          disableRipple
+        >
+          {miscLink.text}
+        </MenuItem>
+      ))}
+    </Menu>
   )
 
   const socialMenu = (
@@ -201,6 +250,16 @@ export default function Navbar(): JSX.Element {
                   <NavBarLinkItem key={navItemIndex} navItem={navItem} />
                 ))}
                 <Button
+                  onClick={handleMiscMenuOpen}
+                  sx={{
+                    textTransform: 'none',
+                    color: '#fff',
+                  }}
+                >
+                  その他
+                  <ArrowDropDownIcon />
+                </Button>
+                <Button
                   onClick={handleSocialMenuOpen}
                   sx={{
                     textTransform: 'none',
@@ -236,6 +295,7 @@ export default function Navbar(): JSX.Element {
           {navDrawerContent}
         </Drawer>
       </nav>
+      {miscMenu}
       {socialMenu}
     </>
   )
