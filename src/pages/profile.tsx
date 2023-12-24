@@ -41,7 +41,7 @@ const ProfilePage: React.FC<{}> = () => {
             </Box>
           </Box>
           <Grid container spacing={4} sx={{ my: 0 }}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} lg={4}>
               <Typography variant="h5" component="h3">
                 連絡先・SNS
               </Typography>
@@ -114,7 +114,7 @@ const ProfilePage: React.FC<{}> = () => {
                 </TableBody>
               </Table>
             </Grid>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} lg={8}>
               <Typography variant="h5" component="h3" gutterBottom>
                 自己紹介
               </Typography>
@@ -125,7 +125,7 @@ const ProfilePage: React.FC<{}> = () => {
                 ずんだもん などの音声合成キャラクターが好きで、フリーの音声合成ソフトウェア VOICEVOX のOSS開発に協力しています。
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} lg={4}>
               <Typography variant="h5" component="h3" gutterBottom>
                 OSSコントリビューション
               </Typography>
@@ -171,7 +171,7 @@ const ProfilePage: React.FC<{}> = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} lg={4}>
               <Typography variant="h5" component="h3" gutterBottom>
                 受賞等
               </Typography>
@@ -189,7 +189,7 @@ const ProfilePage: React.FC<{}> = () => {
                 </List>
               </Typography>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} lg={4}>
               <Typography variant="h5" component="h3" gutterBottom>
                 論文・研究報告
               </Typography>
@@ -210,7 +210,7 @@ const ProfilePage: React.FC<{}> = () => {
                 </ListItem>
               </List>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} lg={4}>
               <Typography variant="h5" component="h3" gutterBottom>
                 作品展示
               </Typography>
