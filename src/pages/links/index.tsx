@@ -1,4 +1,7 @@
 import Navbar from '@/components/Navbar'
+import { Grid, Box, Container, CssBaseline, Toolbar, Typography, Table, TableBody, TableRow, TableCell, TableHead } from '@mui/material'
+import MuiLink from '@mui/material/Link'
+import NextLink  from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import * as React from 'react'
@@ -11,36 +14,43 @@ const LinksPage: React.FC<{}> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title is-3 mb-6'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             リンク集
-          </h1>
-          <p className='mt-2 mb-6'>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+            勝手にリンク集です
+          </Typography>
+          <Typography variant="body1" sx={{ my: 2 }}>
             リンクの追加・変更・削除などは、
             <a href="https://github.com/aoirint/aoirint-web-next/issues">Issues</a>、
             <a href="https://github.com/aoirint/aoirint-web-next/pulls">Pull requests</a>、
             その他連絡先までお願いします。
-          </p>
-          <div className='columns is-multiline is-mobile'>
-            <div className='column is-12 my-2'>
-              <h2 className='title is-4 mt-6 mb-4'>
+          </Typography>
+          <Grid container spacing={4} sx={{ mt: 4 }}>
+            <Grid item xs={12}>
+              <Typography variant="h5" gutterBottom>
                 個人サイト
-              </h2>
-              <table className='table'>
-                <tbody>
-                  <tr>
-                    <th className='is-vcentered py-2'>
+              </Typography>
+              <Table size="medium">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
                       リンク
-                    </th>
-                    <th className='is-vcentered py-2'>
+                    </TableCell>
+                    <TableCell>
                       管理人
-                    </th>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://www.yude.jp/'>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <NextLink href='https://www.yude.jp/'>
                         <Image
                           src='/links/images/yude_jp.png'
                           alt='yude.jpのバナー画像'
@@ -48,163 +58,185 @@ const LinksPage: React.FC<{}> = () => {
                           width="234"
                           height="60"
                         />
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       yude さん
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://pickledchair.com/'>
-                        SuitCase&apos;s Site
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <NextLink href='https://pickledchair.com/' passHref legacyBehavior>
+                        <MuiLink>
+                          SuitCase&apos;s Site
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       SuitCase さん
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className='column is-12 my-2'>
-              <h2 className='title is-4 mt-6 mb-4'>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h5" gutterBottom>
                 ソフトウェア
-              </h2>
-              <table className='table'>
-                <tbody>
-                  <tr>
-                    <th className='is-vcentered py-2'>
+              </Typography>
+              <Table size="medium">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
                       ジャンル
-                    </th>
-                    <th className='is-vcentered py-2'>
+                    </TableCell>
+                    <TableCell>
                       リンク
-                    </th>
-                    <th className='is-vcentered py-2'>
+                    </TableCell>
+                    <TableCell>
                       管理人
-                    </th>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
                       音声合成ソフトウェア
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://voicevox.hiroshiba.jp/'>
-                        VOICEVOX
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://voicevox.hiroshiba.jp/' passHref legacyBehavior>
+                        <MuiLink>
+                          VOICEVOX
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       VOICEVOX Organization
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
                       プログラミング言語
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://www.python.org/'>
-                        Python
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://www.python.org/' passHref legacyBehavior>
+                        <MuiLink>
+                          Python
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       Python Software Foundation
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
                       JavaScript 環境
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://nodejs.org/'>
-                        Node.js
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://nodejs.org/' passHref legacyBehavior>
+                        <MuiLink>
+                          Node.js
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       OpenJS Foundation
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
                       Webフレームワーク
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://www.gatsbyjs.com/'>
-                        Gatsby
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://www.gatsbyjs.com/' passHref legacyBehavior>
+                        <MuiLink>
+                          Gatsby
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       Gatsby, Inc.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
                       GPGPU
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://developer.nvidia.com/'>
-                        NVIDIA Developer
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://developer.nvidia.com/' passHref legacyBehavior>
+                        <MuiLink>
+                          NVIDIA Developer
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       NVIDIA Corporation
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
                       GPGPU
-                    </td>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://pytorch.org/'>
+                    </TableCell>
+                    <TableCell>
+                      <NextLink href='https://pytorch.org/' passHref legacyBehavior>
+                        <MuiLink>
                         PyTorch
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       PyTorch Foundation
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div className='column is-12 my-2'>
-              <h2 className='title is-4 mt-6 mb-4'>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="h5" gutterBottom>
                 キャラクター
-              </h2>
-              <table className='table'>
-                <tbody>
-                  <tr>
-                    <th className='is-vcentered py-2'>
+              </Typography>
+              <Table size="medium">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>
                       リンク
-                    </th>
-                    <th className='is-vcentered py-2'>
+                    </TableCell>
+                    <TableCell>
                       管理人
-                    </th>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://zunko.jp/'>
-                        東北ずん子 公式HP
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <NextLink href='https://zunko.jp/' passHref legacyBehavior>
+                        <MuiLink>
+                          東北ずん子 公式HP
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       SSS LLC
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className='is-vcentered py-4'>
-                      <a href='https://www.gynoid.co.jp/'>
-                        ガイノイド オフィシャルサイト
-                      </a>
-                    </td>
-                    <td className='is-vcentered py-4'>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <NextLink href='https://www.gynoid.co.jp/' passHref legacyBehavior>
+                        <MuiLink>
+                          ガイノイド オフィシャルサイト
+                        </MuiLink>
+                      </NextLink>
+                    </TableCell>
+                    <TableCell>
                       Gynoid
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
     </>
   )
 }
