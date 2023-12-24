@@ -1,16 +1,8 @@
 import Navbar from '@/components/Navbar'
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react'
-
-interface ServiceCard {
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  imageAlt: string
-  url: string
-}
+import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import ServiceCardList, { ServiceCard } from '@/components/ServiceCardList'
 
 const cards: ServiceCard[] = [
   {
@@ -55,48 +47,20 @@ const Services: React.FC<{}> = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>
+      <Box sx={{ display: 'flex', width: '100%' }}>
+        <CssBaseline />
+        <Navbar />
+        <Container component="main" sx={{ p: 3, width: '100%' }}>
+          <Toolbar />
+          <Typography variant="h4">
             サービス
-          </h1>
-          <div className='columns is-multiline'>
-            
-          </div>
-          <div className='columns is-multiline'>
-            {cards.map((card, cardIndex) => (
-              <div key={cardIndex} className='column is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>
-                <a href={card.url}>
-                  <div className='box'>
-                    <article className="media">
-                      <div className="media-left">
-                        <figure className="image is-1by1 is-64x64">
-                          <Image
-                            src={card.image}
-                            alt={card.imageAlt}
-                            width="64"
-                            height="64"
-                          />
-                        </figure>
-                      </div>
-                      <div className="media-content">
-                        <div className="content">
-                          <h3 className='title is-4'>{card.title}</h3>
-                          <h4 className='subtitle is-6 mb-2'>{card.subtitle}</h4>
-                          <p>
-                            {card.description}
-                          </p>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+            運用しているサービス（個人用含む）を掲載します
+          </Typography>
+          <ServiceCardList cards={cards} />
+        </Container>
+      </Box>
     </>
   )
 }
