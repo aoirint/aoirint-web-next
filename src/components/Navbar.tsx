@@ -15,14 +15,16 @@ import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import NextLink from 'next/link'
 import React from 'react'
+import { socialAccounts } from '@/models/social_accounts'
 
 interface NavItem {
   text: string
   href: string
   isMe?: boolean
+  children?: Array<NavItem>
 }
 
-const leftNavItems: NavItem[] = [
+const leftNavItems: Array<NavItem> = [
   {
     text: 'ホーム',
     href: '/',
@@ -39,6 +41,11 @@ const leftNavItems: NavItem[] = [
     text: 'ソーシャル',
     href: '/social/',
     isMe: true,
+    children: socialAccounts.map((socialAccount) => ({
+      text: `${socialAccount.service} ${socialAccount.identifier}`,
+      href: socialAccount.href,
+      isMe: true,
+    })),
   },
   {
     text: 'その他',
@@ -69,6 +76,41 @@ const rightNavItems: NavItem[] = [
   },
 ]
 
+function NavBarLinkItem({ navItem }: { navItem: NavItem }) {
+  return (
+    <>
+      <Button
+        key={navItem.text}
+        href={navItem.href}
+        rel={navItem.isMe ? 'me' : undefined}
+        LinkComponent={NextLink}
+        sx={{
+          textTransform: 'none',
+          color: '#fff',
+        }}
+      >
+        {navItem.text}
+      </Button>
+    </>
+  )
+}
+
+function NavDrawerLinkItem({ navItem }: { navItem: NavItem }) {
+  return (
+    <>
+      <ListItemButton
+        key={navItem.text}
+        href={navItem.href}
+        rel={navItem.isMe ? 'me' : undefined}
+        LinkComponent={NextLink}
+        sx={{ textAlign: 'center' }}
+      >
+        <ListItemText primary={navItem.text} />
+      </ListItemButton>
+    </>
+  )
+}
+
 const Navbar: React.FC<{}> = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
@@ -85,30 +127,14 @@ const Navbar: React.FC<{}> = () => {
       </Typography>
       <Divider />
       <List>
-        {leftNavItems.map((item) => (
-          <ListItemButton
-            key={item.text}
-            href={item.href}
-            rel={item.isMe ? 'me' : undefined}
-            LinkComponent={NextLink}
-            sx={{ textAlign: 'center' }}
-          >
-            <ListItemText primary={item.text} />
-          </ListItemButton>
+        {leftNavItems.map((navItem, navItemIndex) => (
+          <NavDrawerLinkItem key={navItemIndex} navItem={navItem} />
         ))}
       </List>
       <Divider />
       <List>
-        {rightNavItems.map((item) => (
-          <ListItemButton
-            key={item.text}
-            href={item.href}
-            rel={item.isMe ? 'me' : undefined}
-            LinkComponent={NextLink}
-            sx={{ textAlign: 'center' }}
-          >
-            <ListItemText primary={item.text} />
-          </ListItemButton>
+        {rightNavItems.map((navItem, navItemIndex) => (
+          <NavDrawerLinkItem key={navItemIndex} navItem={navItem} />
         ))}
       </List>
     </Box>
@@ -142,35 +168,13 @@ const Navbar: React.FC<{}> = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
             <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
               <Box sx={{ mx: 1 }}>
-                {leftNavItems.map((item) => (
-                  <Button
-                    key={item.text}
-                    href={item.href}
-                    rel={item.isMe ? 'me' : undefined}
-                    LinkComponent={NextLink}
-                    sx={{
-                      textTransform: 'none',
-                      color: '#fff',
-                    }}
-                  >
-                    {item.text}
-                  </Button>
+                {leftNavItems.map((navItem, navItemIndex) => (
+                  <NavBarLinkItem key={navItemIndex} navItem={navItem} />
                 ))}
               </Box>
               <Box>
-                {rightNavItems.map((item) => (
-                  <Button
-                    key={item.text}
-                    href={item.href}
-                    rel={item.isMe ? 'me' : undefined}
-                    LinkComponent={NextLink}
-                    sx={{
-                      textTransform: 'none',
-                      color: '#fff',
-                    }}
-                  >
-                    {item.text}
-                  </Button>
+                {rightNavItems.map((navItem, navItemIndex) => (
+                  <NavBarLinkItem key={navItemIndex} navItem={navItem} />
                 ))}
               </Box>
             </Box>
