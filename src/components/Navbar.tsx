@@ -86,29 +86,29 @@ const Navbar: React.FC<{}> = () => {
       <Divider />
       <List>
         {leftNavItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <NextLink href={item.href} passHref legacyBehavior>
-                <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
-                  <ListItemText primary={item.text} />
-                </MuiLink>
-              </NextLink>
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton
+            key={item.text}
+            href={item.href}
+            rel={item.isMe ? "me" : undefined}
+            LinkComponent={NextLink}
+            sx={{ textAlign: 'center' }}
+          >
+            <ListItemText primary={item.text} />
+          </ListItemButton>
         ))}
       </List>
       <Divider />
       <List>
         {rightNavItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <NextLink href={item.href} passHref legacyBehavior>
-                <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
-                  <ListItemText primary={item.text} />
-                </MuiLink>
-              </NextLink>
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton
+            key={item.text}
+            href={item.href}
+            rel={item.isMe ? "me" : undefined}
+            LinkComponent={NextLink}
+            sx={{ textAlign: 'center' }}
+          >
+            <ListItemText primary={item.text} />
+          </ListItemButton>
         ))}
       </List>
     </Box>
