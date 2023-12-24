@@ -1,5 +1,18 @@
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import useBlogRecentPosts from '@/api/useBlogRecentPosts'
 import useGitHubRecentRepos from '@/api/useGitHubRecentRepos'
 import useLastfmApiMiddleware from '@/api/useLastfmApiMiddleware'
@@ -24,24 +37,26 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <div className='columns is-vcentered is-mobile'>
-            <div className='column is-narrow'>
-              <Image
-                src='/images/icon.png'
-                alt='Logo image'
-                className='image is-96x96'
-                width='96'
-                height='96'
-              />
-            </div>
-            <div className='column'>
-              <h1 className='title is-2'>aoirint</h1>
-              <p className='subtitle is-6 pt-1'>技術とさぶかる</p>
-            </div>
-          </div>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        <CssBaseline />
+        <Navbar />
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
+          <Toolbar />
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', py: 2 }}>
+            <Image src='/images/icon.png' alt='Logo image' width='96' height='96' />
+            <Box sx={{ px: 2.5, py: 2 }}>
+              <Typography variant='h4'>aoirint</Typography>
+              <Typography variant='subtitle1' color='text.secondary'>
+                技術とさぶかる
+              </Typography>
+            </Box>
+          </Box>
           {track != null && track.isPlaying ? <LastfmApiMiddlewareCard track={track} /> : ''}
           {nicoliveProgram != null && nicoliveProgram.isOnair ? (
             <LiveinfoApiMiddlewareNicoliveCard program={nicoliveProgram} />
@@ -53,43 +68,59 @@ export default function Home() {
           ) : (
             ''
           )}
-          <div className='columns'>
-            <div className='column my-2'>
-              <h2 className='title is-4'>最近の記事</h2>
-              <ul>
+          <Grid container spacing={2} sx={{ mt: 1 }}>
+            <Grid item xs={12} lg={6}>
+              <Typography variant='h5' gutterBottom>
+                最近の記事
+              </Typography>
+              <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 {posts.map((post) => (
-                  <li className='mb-2' key={post.url}>
-                    <a href={post.url} className='mb-2'>
-                      {post.title}
-                    </a>
-                    <div className='is-size-7'>
-                      {post.updatedAt != null ? <>Updated: {post.updatedAt}</> : ''}
-                      {post.createdAt != null && post.updatedAt != null ? ' (' : ''}
-                      {post.createdAt != null ? <>Created: {post.createdAt}</> : ''}
-                      {post.createdAt != null && post.updatedAt != null ? ')' : ''}
-                    </div>
-                  </li>
+                  <ListItem key={post.url} disablePadding>
+                    <ListItemText
+                      primary={
+                        <NextLink href={post.url} passHref legacyBehavior>
+                          <MuiLink>{post.title}</MuiLink>
+                        </NextLink>
+                      }
+                      secondary={
+                        <Typography variant='subtitle2' color='text.secondary'>
+                          {post.updatedAt != null ? <>Updated: {post.updatedAt}</> : ''}
+                          {post.createdAt != null && post.updatedAt != null ? ' (' : ''}
+                          {post.createdAt != null ? <>Created: {post.createdAt}</> : ''}
+                          {post.createdAt != null && post.updatedAt != null ? ')' : ''}
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
                 ))}
-              </ul>
-            </div>
-            <div className='column my-2'>
-              <h2 className='title is-4'>最近のリポジトリ</h2>
-              <ul>
+              </List>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <Typography variant='h5' gutterBottom>
+                最近のリポジトリ
+              </Typography>
+              <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 {repos.map((repo) => (
-                  <li className='mb-2' key={repo.url}>
-                    <a href={repo.url} className='mb-2'>
-                      {repo.title}
-                    </a>
-                    <div className='is-size-7'>
-                      Pushed: {repo.pushedAt} (Created: {repo.createdAt})
-                    </div>
-                  </li>
+                  <ListItem key={repo.url} disablePadding>
+                    <ListItemText
+                      primary={
+                        <NextLink href={repo.url} passHref legacyBehavior>
+                          <MuiLink>{repo.title}</MuiLink>
+                        </NextLink>
+                      }
+                      secondary={
+                        <Typography variant='subtitle2' color='text.secondary'>
+                          Pushed: {repo.pushedAt} (Created: {repo.createdAt})
+                        </Typography>
+                      }
+                    />
+                  </ListItem>
                 ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+              </List>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
     </>
   )
 }

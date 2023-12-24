@@ -1,17 +1,8 @@
+import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
-
-interface WorkCard {
-  title: string
-  image: string
-  imageAlt: string
-  url: string
-  subtitle: string
-  date: string
-}
+import WorkCardList, { WorkCard } from '@/components/WorkCardList'
 
 const cards: WorkCard[] = [
   {
@@ -80,41 +71,24 @@ const Activities: React.FC<{}> = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Navbar />
-      <section className='section'>
-        <div className='container'>
-          <h1 className='title'>作品ギャラリー</h1>
-          {/* <p className='subtitle'>
-                        関わった作品
-                    </p> */}
-          <div className='columns is-multiline'>
-            {cards.map((card, cardIndex) => (
-              <div key={cardIndex} className='column is-one-quarter'>
-                <Link href={card.url}>
-                  <div className='card'>
-                    <div className='card-image'>
-                      <figure className='image is-4by3'>
-                        <Image src={card.image} alt={card.imageAlt} width='800' height='600' />
-                      </figure>
-                    </div>
-                    <div className='card-content'>
-                      <div className='media'>
-                        <div className='media-content'>
-                          <p className='title is-4'>{card.title}</p>
-                          <p className='subtitle is-6'>{card.subtitle}</p>
-                        </div>
-                      </div>
-                      <div className='content'>
-                        <p>{card.date}</p>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        <CssBaseline />
+        <Navbar />
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
+          <Toolbar />
+          <Typography variant='h4'>作品ギャラリー</Typography>
+          <Typography variant='subtitle1' color='text.secondary' gutterBottom>
+            関わった作品を掲載します
+          </Typography>
+          <WorkCardList cards={cards} />
+        </Container>
+      </Box>
     </>
   )
 }
