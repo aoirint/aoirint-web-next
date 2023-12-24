@@ -23,7 +23,6 @@ interface NavItem {
   text: string
   href: string
   isMe?: boolean
-  menuKey?: string
 }
 
 const leftNavItems: Array<NavItem> = [
