@@ -45,51 +45,58 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
                 </Typography>
               </CardContent>
               <CardActions sx={{ ml: 1 }}>
-                {card.useUrl != null ? (
-                  <Button size="medium" variant="contained" color="primary">
-                    <NextLink href={card.useUrl} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none">
-                        使ってみる
-                      </MuiLink>
-                    </NextLink>
-                  </Button>
-                ) : ''}
-                {card.archiveUrl != null ? (
-                  <Button size="medium" variant="outlined" color="info">
-                    <NextLink href={card.archiveUrl} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none">
-                        跡地
-                      </MuiLink>
-                    </NextLink>
-                  </Button>
-                ) : ''}
-                {card.sourceCodeUrl != null ? (
-                  <Button size="medium" variant="outlined" color="info">
-                    <NextLink href={card.sourceCodeUrl} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none">
-                        ソースコード
-                      </MuiLink>
-                    </NextLink>
-                  </Button>
-                ) : ''}
-                {card.sourceProjectUrl != null ? (
-                  <Button size="medium" variant="outlined" color="info">
-                    <NextLink href={card.sourceProjectUrl} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none">
-                        本体ソースコード
-                      </MuiLink>
-                    </NextLink>
-                  </Button>
-                ) : ''}
-                {card.detailUrl != null ? (
-                  <Button size="medium" variant="outlined" color="info">
-                    <NextLink href={card.detailUrl} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none">
-                        詳細
-                      </MuiLink>
-                    </NextLink>
-                  </Button>
-                ) : ''}
+                <Box sx={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  flexWrap: "wrap",
+                  gap: "8px",
+                }}>
+                  {card.useUrl != null ? (
+                    <Button size="medium" variant="contained" color="primary">
+                      <NextLink href={card.useUrl} passHref legacyBehavior>
+                        <MuiLink color="inherit" underline="none">
+                          使ってみる
+                        </MuiLink>
+                      </NextLink>
+                    </Button>
+                  ) : ''}
+                  {card.archiveUrl != null ? (
+                    <Button size="medium" variant="outlined" color="info">
+                      <NextLink href={card.archiveUrl} passHref legacyBehavior>
+                        <MuiLink color="inherit" underline="none">
+                          跡地
+                        </MuiLink>
+                      </NextLink>
+                    </Button>
+                  ) : ''}
+                  {card.sourceCodeUrl != null ? (
+                    <Button size="medium" variant="outlined" color="info">
+                      <NextLink href={card.sourceCodeUrl} passHref legacyBehavior>
+                        <MuiLink color="inherit" underline="none">
+                          ソースコード
+                        </MuiLink>
+                      </NextLink>
+                    </Button>
+                  ) : ''}
+                  {card.sourceProjectUrl != null ? (
+                    <Button size="medium" variant="outlined" color="info">
+                      <NextLink href={card.sourceProjectUrl} passHref legacyBehavior>
+                        <MuiLink color="inherit" underline="none">
+                          本体ソースコード
+                        </MuiLink>
+                      </NextLink>
+                    </Button>
+                  ) : ''}
+                  {card.detailUrl != null ? (
+                    <Button size="medium" variant="outlined" color="info">
+                      <NextLink href={card.detailUrl} passHref legacyBehavior>
+                        <MuiLink color="inherit" underline="none">
+                          詳細
+                        </MuiLink>
+                      </NextLink>
+                    </Button>
+                  ) : ''}
+                </Box>
               </CardActions>
             </Box>
           </Card>
