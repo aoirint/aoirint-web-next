@@ -43,9 +43,22 @@ const LinksPage: React.FC<{}> = () => {
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             リンクの追加・変更・削除などは、
-            <a href='https://github.com/aoirint/aoirint-web-next/issues'>Issues</a>、
-            <a href='https://github.com/aoirint/aoirint-web-next/pulls'>Pull requests</a>、
-            その他連絡先までお願いします。
+            <NextLink
+              href='https://github.com/aoirint/aoirint-web-next/issues'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>Issues</MuiLink>
+            </NextLink>
+            、
+            <NextLink
+              href='https://github.com/aoirint/aoirint-web-next/pulls'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>Pull requests</MuiLink>
+            </NextLink>
+            、 その他連絡先までお願いします。
           </Typography>
           <Grid container spacing={4} sx={{ mt: 4 }}>
             <Grid item xs={12}>

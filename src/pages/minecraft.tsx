@@ -11,9 +11,11 @@ import {
   TableCell,
   TableHead,
 } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 
 import dayjs from 'dayjs'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import * as React from 'react'
 import useMinecraftBedrockServerStatusList from '@/api/useMinecraftBedrockServerStatusList'
 import useMinecraftJavaServerStatusList from '@/api/useMinecraftJavaServerStatusList'
@@ -128,8 +130,18 @@ const MinecraftPage: React.FC<{}> = () => {
           </Grid>
           <Typography variant='body2' color='text.secondary' sx={{ mt: 4 }}>
             Powered by{' '}
-            <a href='https://github.com/aoirint/aoirint_mcping_server'>aoirint_mcping_server</a> +{' '}
-            <a href='https://github.com/aoirint/aoirint_mcping_bff'>aoirint_mcping_bff</a>.
+            <NextLink
+              href='https://github.com/aoirint/aoirint_mcping_server'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>aoirint_mcping_server</MuiLink>
+            </NextLink>{' '}
+            +{' '}
+            <NextLink href='https://github.com/aoirint/aoirint_mcping_bff' passHref legacyBehavior>
+              <MuiLink>aoirint_mcping_bff</MuiLink>
+            </NextLink>
+            .
           </Typography>
         </Container>
       </Box>

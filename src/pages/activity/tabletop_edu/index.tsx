@@ -1,6 +1,8 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -39,13 +41,20 @@ const TabletopEdu: React.FC<{}> = () => {
             （画像は前身となるシステムを利用したプログラミングワークショップの様子）
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
-            研究開発系サークル<a href='https://imedia-lab.net/'>インタラクティブメディアラボ</a>
+            研究開発系サークル
+            <NextLink href='https://imedia-lab.net/' passHref legacyBehavior>
+              <MuiLink>インタラクティブメディアラボ</MuiLink>
+            </NextLink>
             にて、 チーム製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
-            <a href='https://www.uec.ac.jp/news/announcement/2018/20180627_1107.html'>
-              UECものづくりコンテスト2018
-            </a>
+            <NextLink
+              href='https://www.uec.ac.jp/news/announcement/2018/20180627_1107.html'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>UECものづくりコンテスト2018</MuiLink>
+            </NextLink>
             にて、株式会社フローベル賞を受賞。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>

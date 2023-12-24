@@ -189,16 +189,20 @@ const ProfilePage: React.FC<{}> = () => {
               <List sx={{ listStyleType: 'disc', listStylePosition: 'outside', ml: '1.25rem' }}>
                 <ListItem disablePadding sx={{ display: 'list-item' }}>
                   （第二著者）
-                  <a href='https://doi.org/10.1145/3474349.3480207'>
-                    UPLIGHT: A Novel Portable Game Device with Omnidirectional Projection Display
-                  </a>
+                  <NextLink href='https://doi.org/10.1145/3474349.3480207' passHref legacyBehavior>
+                    <MuiLink>
+                      UPLIGHT: A Novel Portable Game Device with Omnidirectional Projection Display
+                    </MuiLink>
+                  </NextLink>
                   , UIST 2021（2021年10月）
                 </ListItem>
                 <ListItem disablePadding sx={{ display: 'list-item' }}>
                   （第二著者）
-                  <a href='https://id.ndl.go.jp/bib/031336480'>
-                    UPLIGHT：小型全周囲ディスプレイを搭載した次世代の携帯型ゲームデバイスの開発
-                  </a>
+                  <NextLink href='https://id.ndl.go.jp/bib/031336480' passHref legacyBehavior>
+                    <MuiLink>
+                      UPLIGHT：小型全周囲ディスプレイを搭載した次世代の携帯型ゲームデバイスの開発
+                    </MuiLink>
+                  </NextLink>
                   , 情報処理学会 第188回HCI研究会（2020年6月）
                 </ListItem>
               </List>

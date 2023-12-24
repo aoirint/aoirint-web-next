@@ -1,5 +1,7 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -27,9 +29,9 @@ const ArtificialCharacters: React.FC<{}> = () => {
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             PBL講義
-            <a href='http://pr.cei.uec.ac.jp/kobo2018/index.php'>
-              情報工学工房2018 テーマ「Pythonによる深層学習」
-            </a>
+            <NextLink href='http://pr.cei.uec.ac.jp/kobo2018/index.php' passHref legacyBehavior>
+              <MuiLink>情報工学工房2018 テーマ「Pythonによる深層学習」</MuiLink>
+            </NextLink>
             にて、 個人製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>

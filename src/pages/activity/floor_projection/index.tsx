@@ -1,6 +1,8 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -35,7 +37,10 @@ const FloorProjection: React.FC<{}> = () => {
             />
           </Box>
           <Typography variant='body1' sx={{ my: 2 }}>
-            研究開発系サークル<a href='https://imedia-lab.net/'>インタラクティブメディアラボ</a>
+            研究開発系サークル
+            <NextLink href='https://imedia-lab.net/' passHref legacyBehavior>
+              <MuiLink>インタラクティブメディアラボ</MuiLink>
+            </NextLink>
             にて、 チーム製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
@@ -48,7 +53,10 @@ const FloorProjection: React.FC<{}> = () => {
             開発メンバーとして、ゲームアプリケーションの一部開発を担当した。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
-            GitHub Organization：<a href='https://github.com/imlGaze'>https://github.com/imlGaze</a>
+            GitHub Organization：
+            <NextLink href='https://github.com/imlGaze' passHref legacyBehavior>
+              <MuiLink>https://github.com/imlGaze</MuiLink>
+            </NextLink>
           </Typography>
         </Container>
       </Box>

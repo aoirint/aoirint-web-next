@@ -1,6 +1,8 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -36,19 +38,32 @@ const Uplight: React.FC<{}> = () => {
             />
           </Box>
           <Typography variant='body1' sx={{ my: 2 }}>
-            研究開発系サークル<a href='https://imedia-lab.net/'>インタラクティブメディアラボ</a>
+            研究開発系サークル
+            <NextLink href='https://imedia-lab.net/' passHref legacyBehavior>
+              <MuiLink>インタラクティブメディアラボ</MuiLink>
+            </NextLink>
             にて、
-            <a href='https://imedia-lab.net/iml-projects/uplight/'>UPLIGHTプロジェクト</a>
+            <NextLink href='https://imedia-lab.net/iml-projects/uplight/' passHref legacyBehavior>
+              <MuiLink>UPLIGHTプロジェクト</MuiLink>
+            </NextLink>
             として製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
-            <a href='https://expo.nikkeibp.co.jp/tgs/2019/exhibition/sown/'>
-              東京ゲームショウ2019 センス・オブ・ワンダーナイト
-            </a>{' '}
+            <NextLink
+              href='https://expo.nikkeibp.co.jp/tgs/2019/exhibition/sown/'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>東京ゲームショウ2019 センス・オブ・ワンダーナイト</MuiLink>
+            </NextLink>{' '}
             選考ブースに採択され、 ファイナリスト選出のうえ、
-            <a href='https://expo.nikkeibp.co.jp/tgs/2019/sown/sensefinal.html'>
-              Best Technological Game Award
-            </a>
+            <NextLink
+              href='https://expo.nikkeibp.co.jp/tgs/2019/sown/sensefinal.html'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>Best Technological Game Award</MuiLink>
+            </NextLink>
             を受賞した。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>

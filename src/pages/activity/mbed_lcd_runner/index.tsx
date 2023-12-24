@@ -1,5 +1,7 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -40,9 +42,13 @@ const MbedLcdRunner: React.FC<{}> = () => {
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             開発途中のサルベージ版プログラム：
-            <a href='https://gist.github.com/aoirint/d6bd55c0f4f02582ae7c4069b6486e4c'>
-              https://gist.github.com/aoirint/d6bd55c0f4f02582ae7c4069b6486e4c
-            </a>
+            <NextLink
+              href='https://gist.github.com/aoirint/d6bd55c0f4f02582ae7c4069b6486e4c'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>https://gist.github.com/aoirint/d6bd55c0f4f02582ae7c4069b6486e4c</MuiLink>
+            </NextLink>
           </Typography>
         </Container>
       </Box>

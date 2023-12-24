@@ -1,6 +1,8 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -36,7 +38,9 @@ const HoloPick: React.FC<{}> = () => {
             />
           </Box>
           <Typography variant='body1' sx={{ my: 2 }}>
-            <a href='https://www.ce.uec.ac.jp/projects/'>PBL講義 ICCD2019</a>
+            <NextLink href='https://www.ce.uec.ac.jp/projects/' passHref legacyBehavior>
+              <MuiLink>PBL講義 ICCD2019</MuiLink>
+            </NextLink>
             にて、チームKとして製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>

@@ -1,6 +1,8 @@
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import MuiLink from '@mui/material/Link'
 import Head from 'next/head'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import React from 'react'
 import Navbar from '@/components/Navbar'
 
@@ -36,31 +38,54 @@ const SpatialVolumeController: React.FC<{}> = () => {
             />
           </Box>
           <Typography variant='body1' sx={{ my: 2 }}>
-            <a href='https://talent.supporterz.jp/events/28d759c2-50b4-456d-889b-1f08abf6c053/'>
-              サポーターズ ウインターハッカソン vol.7
-            </a>
+            <NextLink
+              href='https://talent.supporterz.jp/events/28d759c2-50b4-456d-889b-1f08abf6c053/'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>サポーターズ ウインターハッカソン vol.7</MuiLink>
+            </NextLink>
             （2021年2月）にて、 チーム
-            <a href='https://github.com/miniature-octo-guide'>Minuature Octo Guide</a>として製作。
+            <NextLink href='https://github.com/miniature-octo-guide' passHref legacyBehavior>
+              <MuiLink>Minuature Octo Guide</MuiLink>
+            </NextLink>
+            として製作。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             Node.js / TypeScriptを使って開発した。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             同ハッカソンにて、
-            <a href='https://twitter.com/nacopaguu/status/1365963599538135041'>最優秀賞</a>
+            <NextLink
+              href='https://twitter.com/nacopaguu/status/1365963599538135041'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>最優秀賞</MuiLink>
+            </NextLink>
             を受賞した。
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             GitHub：
-            <a href='https://github.com/miniature-octo-guide/spatial-volume-controller'>
-              https://github.com/miniature-octo-guide/spatial-volume-controller
-            </a>
+            <NextLink
+              href='https://github.com/miniature-octo-guide/spatial-volume-controller'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>https://github.com/miniature-octo-guide/spatial-volume-controller</MuiLink>
+            </NextLink>
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             Chrome Web Store：
-            <a href='https://chrome.google.com/webstore/detail/pnkkbnogmhohlilallaniclhcekdahmm'>
-              https://chrome.google.com/webstore/detail/pnkkbnogmhohlilallaniclhcekdahmm
-            </a>
+            <NextLink
+              href='https://chrome.google.com/webstore/detail/pnkkbnogmhohlilallaniclhcekdahmm'
+              passHref
+              legacyBehavior
+            >
+              <MuiLink>
+                https://chrome.google.com/webstore/detail/pnkkbnogmhohlilallaniclhcekdahmm
+              </MuiLink>
+            </NextLink>
           </Typography>
           <Typography variant='body1' sx={{ my: 2 }}>
             開発メンバーとして、CI整備やコードレビュー、マージ作業ほかを担当した。
