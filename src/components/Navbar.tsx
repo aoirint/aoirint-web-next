@@ -120,7 +120,7 @@ const Navbar: React.FC<{}> = () => {
 
   const drawerWidth = 240
 
-  const drawer = (
+  const navDrawerContent = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant='h6' sx={{ my: 2 }}>
         aoirint
@@ -194,7 +194,7 @@ const Navbar: React.FC<{}> = () => {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
-          {drawer}
+          {navDrawerContent}
         </Drawer>
       </nav>
     </>
