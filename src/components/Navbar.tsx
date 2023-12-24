@@ -44,6 +44,13 @@ const leftNavItems: Array<NavItem> = [
   },
 ]
 
+const leftMobileNavItems: Array<NavItem> = [
+  {
+    text: 'ソーシャル',
+    href: '/social/',
+  },
+]
+
 const rightNavItems: Array<NavItem> = [
   {
     text: 'Blog',
@@ -131,6 +138,9 @@ export default function Navbar(): JSX.Element {
       <Divider />
       <List>
         {leftNavItems.map((navItem, navItemIndex) => (
+          <NavDrawerLinkItem key={navItemIndex} navItem={navItem} />
+        ))}
+        {leftMobileNavItems.map((navItem, navItemIndex) => (
           <NavDrawerLinkItem key={navItemIndex} navItem={navItem} />
         ))}
       </List>
