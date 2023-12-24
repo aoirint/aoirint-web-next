@@ -152,23 +152,33 @@ const Navbar: React.FC<{}> = () => {
             <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
               <Box sx={{ mx: 1 }}>
                 {leftNavItems.map((item) => (
-                  <Button key={item.text} sx={{ color: '#fff' }}>
-                    <NextLink href={item.href} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
-                        {item.text}
-                      </MuiLink>
-                    </NextLink>
+                  <Button
+                    key={item.text}
+                    href={item.href}
+                    rel={item.isMe ? "me" : undefined}
+                    LinkComponent={NextLink}
+                    sx={{
+                      textTransform: 'none',
+                      color: '#fff',
+                    }}
+                  >
+                    {item.text}
                   </Button>
                 ))}
               </Box>
               <Box>
                 {rightNavItems.map((item) => (
-                  <Button key={item.text} sx={{ color: '#fff' }}>
-                    <NextLink href={item.href} passHref legacyBehavior>
-                      <MuiLink color="inherit" underline="none" rel={item.isMe ? "me" : undefined}>
-                        {item.text}
-                      </MuiLink>
-                    </NextLink>
+                  <Button
+                    key={item.text}
+                    href={item.href}
+                    rel={item.isMe ? "me" : undefined}
+                    LinkComponent={NextLink}
+                    sx={{
+                      textTransform: 'none',
+                      color: '#fff',
+                    }}
+                  >
+                    {item.text}
                   </Button>
                 ))}
               </Box>
