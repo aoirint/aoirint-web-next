@@ -11,7 +11,9 @@ export interface MinecraftJavaServerStatus {
 
 const useMinecraftJavaServerStatusList = () => {
   const [loading, setLoading] = React.useState<boolean>(true)
-  const [minecraftJavaServerStatusList, setMinecraftJavaServerStatusList] = React.useState<MinecraftJavaServerStatus[] | null>(null)
+  const [minecraftJavaServerStatusList, setMinecraftJavaServerStatusList] = React.useState<
+    MinecraftJavaServerStatus[] | null
+  >(null)
 
   React.useEffect(() => {
     if (minecraftJavaServerStatusList === null) {

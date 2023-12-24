@@ -6,11 +6,14 @@ interface LiveinfoApiMiddlewareV1YtliveResponse {
     title: string
     description: string
     url: string
-    thumbnails: Record<string, {
-      url: string
-      width: number
-      height: number
-    }>
+    thumbnails: Record<
+      string,
+      {
+        url: string
+        width: number
+        height: number
+      }
+    >
     startTime: string
     endTime: string
     isOnair: boolean
@@ -18,11 +21,14 @@ interface LiveinfoApiMiddlewareV1YtliveResponse {
   channel: {
     name: string
     url: string
-    thumbnails: Record<string, {
-      url: string
-      width: number
-      height: number
-    }>
+    thumbnails: Record<
+      string,
+      {
+        url: string
+        width: number
+        height: number
+      }
+    >
   }
 }
 

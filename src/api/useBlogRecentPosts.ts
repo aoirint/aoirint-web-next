@@ -1,5 +1,5 @@
-import React from 'react'
 import dayjs from 'dayjs'
+import React from 'react'
 
 export interface Post {
   title: string
@@ -29,7 +29,8 @@ const useBlogRecentPosts = () => {
             const atomUpdated = entry.getElementsByTagName('atom:updated')?.[0]?.textContent ?? ''
 
             const createdAt = pubDate !== '' ? dayjs(pubDate).format('YYYY-MM-DD') : undefined
-            const updatedAt = atomUpdated !== '' ? dayjs(atomUpdated).format('YYYY-MM-DD') : undefined
+            const updatedAt =
+              atomUpdated !== '' ? dayjs(atomUpdated).format('YYYY-MM-DD') : undefined
 
             return {
               title,

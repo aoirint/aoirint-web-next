@@ -12,11 +12,11 @@ interface LastFmApiMiddlewareV1RecentTracksResponse {
       }[]
       album: {
         '#text': string
-      },
-      name: string,
+      }
+      name: string
       '@attr'?: {
         nowplaying: 'true' | string
-      },
+      }
       url: string
       date?: {
         uts: string
@@ -44,14 +44,16 @@ const useLastfmApiMiddleware = () => {
       fetch('https://lastfm-api-middleware.aoirint.com/v1/recenttracks')
         .then((data) => data.json())
         .then((data: LastFmApiMiddlewareV1RecentTracksResponse) => {
-          const lastTrack = data != null && data?.recenttracks.track.length > 0 ? data.recenttracks.track[0] : null
+          const lastTrack =
+            data != null && data?.recenttracks.track.length > 0 ? data.recenttracks.track[0] : null
           const isPlaying = lastTrack?.['@attr']?.nowplaying === 'true'
-        
+
           const lastTrackUrl = lastTrack?.url ?? null
           const lastTrackTitle = lastTrack?.name ?? null
           const lastTrackAlbumName = lastTrack?.album['#text'] ?? null
           const lastTrackArtist = lastTrack?.artist['#text'] ?? null
-          const lastTrackAlbumArt = lastTrack?.image.filter((image) => image.size === 'medium')[0] ?? null
+          const lastTrackAlbumArt =
+            lastTrack?.image.filter((image) => image.size === 'medium')[0] ?? null
           const lastTrackAlbumArtUrl = lastTrackAlbumArt?.['#text'] ?? null
 
           setTrack({
