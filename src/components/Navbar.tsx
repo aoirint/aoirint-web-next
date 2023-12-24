@@ -1,3 +1,4 @@
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Menu, MenuItem } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
@@ -197,6 +198,7 @@ export default function Navbar(): JSX.Element {
                   }}
                 >
                   ソーシャル
+                  <ArrowDropDownIcon />
                 </Button>
               </Box>
               <Box>
