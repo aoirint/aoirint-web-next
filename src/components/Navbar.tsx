@@ -1,4 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu'
+import { Menu, MenuItem } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -7,7 +8,6 @@ import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
 import MuiLink from '@mui/material/Link'
 import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
 import Toolbar from '@mui/material/Toolbar'
@@ -21,7 +21,7 @@ interface NavItem {
   text: string
   href: string
   isMe?: boolean
-  children?: Array<NavItem>
+  menuKey?: string
 }
 
 const leftNavItems: Array<NavItem> = [
@@ -38,22 +38,12 @@ const leftNavItems: Array<NavItem> = [
     href: '/content/',
   },
   {
-    text: 'ソーシャル',
-    href: '/social/',
-    isMe: true,
-    children: socialAccounts.map((socialAccount) => ({
-      text: `${socialAccount.service} ${socialAccount.identifier}`,
-      href: socialAccount.href,
-      isMe: true,
-    })),
-  },
-  {
     text: 'その他',
     href: '/misc/',
   },
 ]
 
-const rightNavItems: NavItem[] = [
+const rightNavItems: Array<NavItem> = [
   {
     text: 'Blog',
     href: 'https://blog.aoirint.com/',
@@ -76,7 +66,7 @@ const rightNavItems: NavItem[] = [
   },
 ]
 
-function NavBarLinkItem({ navItem }: { navItem: NavItem }) {
+function NavBarLinkItem({ navItem }: { navItem: NavItem }): JSX.Element {
   return (
     <>
       <Button
@@ -95,7 +85,7 @@ function NavBarLinkItem({ navItem }: { navItem: NavItem }) {
   )
 }
 
-function NavDrawerLinkItem({ navItem }: { navItem: NavItem }) {
+function NavDrawerLinkItem({ navItem }: { navItem: NavItem }): JSX.Element {
   return (
     <>
       <ListItemButton
@@ -111,11 +101,23 @@ function NavDrawerLinkItem({ navItem }: { navItem: NavItem }) {
   )
 }
 
-const Navbar: React.FC<{}> = () => {
-  const [mobileOpen, setMobileOpen] = React.useState(false)
+export default function Navbar(): JSX.Element {
+  const [mobileOpen, setMobileOpen] = React.useState<boolean>(false)
+  const [socialMenuAnchorElement, setSocialMenuAnchorElement] = React.useState<HTMLElement | null>(
+    null,
+  )
+  const socialMenuOpen = Boolean(socialMenuAnchorElement)
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState)
+  }
+
+  const handleSocialMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setSocialMenuAnchorElement(event.currentTarget)
+  }
+
+  const handleSocialMenuClose = () => {
+    setSocialMenuAnchorElement(null)
   }
 
   const drawerWidth = 240
@@ -138,6 +140,16 @@ const Navbar: React.FC<{}> = () => {
         ))}
       </List>
     </Box>
+  )
+
+  const socialMenu = (
+    <Menu anchorEl={socialMenuAnchorElement} open={socialMenuOpen} onClose={handleSocialMenuClose}>
+      {socialAccounts.map((socialAccount) => (
+        <MenuItem href={socialAccount.href} rel='me' onClick={handleSocialMenuClose} disableRipple>
+          {socialAccount.service} {socialAccount.identifier}
+        </MenuItem>
+      ))}
+    </Menu>
   )
 
   return (
@@ -171,6 +183,15 @@ const Navbar: React.FC<{}> = () => {
                 {leftNavItems.map((navItem, navItemIndex) => (
                   <NavBarLinkItem key={navItemIndex} navItem={navItem} />
                 ))}
+                <Button
+                  onClick={handleSocialMenuOpen}
+                  sx={{
+                    textTransform: 'none',
+                    color: '#fff',
+                  }}
+                >
+                  ソーシャル
+                </Button>
               </Box>
               <Box>
                 {rightNavItems.map((navItem, navItemIndex) => (
@@ -197,8 +218,7 @@ const Navbar: React.FC<{}> = () => {
           {navDrawerContent}
         </Drawer>
       </nav>
+      {socialMenu}
     </>
   )
 }
-
-export default Navbar
