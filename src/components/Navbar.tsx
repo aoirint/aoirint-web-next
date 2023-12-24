@@ -169,8 +169,8 @@ export default function Navbar(): JSX.Element {
       {miscInternalLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
           key={miscLinkIndex}
+          component={NextLink}
           href={miscLink.href}
-          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
@@ -181,8 +181,8 @@ export default function Navbar(): JSX.Element {
       {miscStatusLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
           key={miscLinkIndex}
+          component={NextLink}
           href={miscLink.href}
-          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
@@ -193,8 +193,8 @@ export default function Navbar(): JSX.Element {
       {miscExternalLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
           key={miscLinkIndex}
+          component={NextLink}
           href={miscLink.href}
-          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
