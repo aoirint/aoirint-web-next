@@ -1,4 +1,3 @@
-
 import {
   Grid,
   Box,
@@ -28,7 +27,13 @@ const ProfilePage: React.FC<{}> = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Box sx={{ display: 'flex', width: '100%' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
         <CssBaseline />
         <Navbar />
         <Container component='main' sx={{ m: 4, width: '100%' }}>

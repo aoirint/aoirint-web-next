@@ -13,7 +13,13 @@ const TabletopEdu: React.FC<{}> = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar />
-      <Box sx={{ display: 'flex', width: '100%' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
         <CssBaseline />
         <Navbar />
         <Container component='main' sx={{ m: 4, width: '100%' }}>

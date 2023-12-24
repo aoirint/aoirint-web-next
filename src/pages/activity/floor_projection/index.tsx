@@ -1,4 +1,3 @@
-
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -13,7 +12,13 @@ const FloorProjection: React.FC<{}> = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Box sx={{ display: 'flex', width: '100%' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
         <CssBaseline />
         <Navbar />
         <Container component='main' sx={{ m: 4, width: '100%' }}>

@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Typography,
-} from '@mui/material'
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import NextLink from 'next/link'
 import React from 'react'
 
