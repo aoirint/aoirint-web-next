@@ -1,11 +1,14 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html lang="ja">
       <Head>
         {/* <!-- Google tag (gtag.js) --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2PECGJKLB"></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-L2PECGJKLB"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -14,7 +17,7 @@ export default function Document() {
             gtag('js', new Date());
 
             gtag('config', 'G-L2PECGJKLB');
-          `
+          `,
           }}
         />
       </Head>
@@ -23,5 +26,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
