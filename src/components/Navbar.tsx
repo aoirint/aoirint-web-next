@@ -166,10 +166,11 @@ export default function Navbar(): JSX.Element {
 
   const miscMenu = (
     <Menu anchorEl={miscMenuAnchorElement} open={miscMenuOpen} onClose={handleMiscMenuClose}>
-      {miscInternalLinks.map((miscLink, miscLinkIndx) => (
+      {miscInternalLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
-          key={miscLinkIndx}
+          key={miscLinkIndex}
           href={miscLink.href}
+          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
@@ -177,10 +178,11 @@ export default function Navbar(): JSX.Element {
         </MenuItem>
       ))}
       <Divider />
-      {miscStatusLinks.map((miscLink, miscLinkIndx) => (
+      {miscStatusLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
-          key={miscLinkIndx}
+          key={miscLinkIndex}
           href={miscLink.href}
+          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
@@ -188,10 +190,11 @@ export default function Navbar(): JSX.Element {
         </MenuItem>
       ))}
       <Divider />
-      {miscExternalLinks.map((miscLink, miscLinkIndx) => (
+      {miscExternalLinks.map((miscLink, miscLinkIndex) => (
         <MenuItem
-          key={miscLinkIndx}
+          key={miscLinkIndex}
           href={miscLink.href}
+          LinkComponent={NextLink}
           onClick={handleMiscMenuClose}
           disableRipple
         >
