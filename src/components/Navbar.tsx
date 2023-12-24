@@ -144,8 +144,14 @@ export default function Navbar(): JSX.Element {
 
   const socialMenu = (
     <Menu anchorEl={socialMenuAnchorElement} open={socialMenuOpen} onClose={handleSocialMenuClose}>
-      {socialAccounts.map((socialAccount) => (
-        <MenuItem href={socialAccount.href} rel='me' onClick={handleSocialMenuClose} disableRipple>
+      {socialAccounts.map((socialAccount, socialAccountIndex) => (
+        <MenuItem
+          key={socialAccountIndex}
+          href={socialAccount.href}
+          rel='me'
+          onClick={handleSocialMenuClose}
+          disableRipple
+        >
           {socialAccount.service} {socialAccount.identifier}
         </MenuItem>
       ))}
