@@ -1,6 +1,5 @@
 import React from 'react'
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-import MuiLink from '@mui/material/Link'
+import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import NextLink  from 'next/link'
 
 export interface ServiceCard {
@@ -25,6 +24,7 @@ const ServiceCardList: React.FC<ServiceCardListProps> = ({
         <Grid item xs={12} md={6} key={cardIndex}>
           <Card>
             <CardActionArea
+              LinkComponent={NextLink}
               href={card.url}
               sx={{
                 display: 'flex',
