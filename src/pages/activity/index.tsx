@@ -1,8 +1,8 @@
-import Navbar from '@/components/Navbar'
 import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
-import WorkCardList, { WorkCard } from '@/components/WorkCardList'
 import Head from 'next/head'
 import React from 'react'
+import Navbar from '@/components/Navbar'
+import WorkCardList, { WorkCard } from '@/components/WorkCardList'
 
 const cards: WorkCard[] = [
   {
@@ -68,8 +68,8 @@ const Activities: React.FC<{}> = () => {
     <>
       <Head>
         <title>作品ギャラリー - aoirint</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box
         sx={{
@@ -80,12 +80,10 @@ const Activities: React.FC<{}> = () => {
       >
         <CssBaseline />
         <Navbar />
-        <Container component="main" sx={{ m: 4, width: '100%' }}>
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
           <Toolbar />
-          <Typography variant="h4">
-            作品ギャラリー
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          <Typography variant='h4'>作品ギャラリー</Typography>
+          <Typography variant='subtitle1' color='text.secondary' gutterBottom>
             関わった作品を掲載します
           </Typography>
           <WorkCardList cards={cards} />

@@ -1,20 +1,20 @@
-import Image from 'next/image'
-import NextLink  from 'next/link'
-import React from 'react'
+import MenuIcon from '@mui/icons-material/Menu'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import MuiLink from '@mui/material/Link'
+import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
+import MuiLink from '@mui/material/Link'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
-import MenuIcon from '@mui/icons-material/Menu'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
+import Image from 'next/image'
+import NextLink from 'next/link'
+import React from 'react'
 
 interface NavItem {
   text: string
@@ -24,47 +24,47 @@ interface NavItem {
 
 const leftNavItems: NavItem[] = [
   {
-    text: "ホーム",
-    href: "/",
+    text: 'ホーム',
+    href: '/',
   },
   {
-    text: "ソフトウェア",
-    href: "/software/",
+    text: 'ソフトウェア',
+    href: '/software/',
   },
   {
-    text: "コンテンツ",
-    href: "/content/",
+    text: 'コンテンツ',
+    href: '/content/',
   },
   {
-    text: "ソーシャル",
-    href: "/social/",
+    text: 'ソーシャル',
+    href: '/social/',
     isMe: true,
   },
   {
-    text: "その他",
-    href: "/misc/",
+    text: 'その他',
+    href: '/misc/',
   },
 ]
 
 const rightNavItems: NavItem[] = [
   {
-    text: "Blog",
-    href: "https://blog.aoirint.com/",
+    text: 'Blog',
+    href: 'https://blog.aoirint.com/',
     isMe: true,
   },
   {
-    text: "GitHub",
-    href: "https://github.com/aoirint",
+    text: 'GitHub',
+    href: 'https://github.com/aoirint',
     isMe: true,
   },
   {
-    text: "Twitter",
-    href: "https://twitter.com/aoirint",
+    text: 'Twitter',
+    href: 'https://twitter.com/aoirint',
     isMe: true,
   },
   {
-    text: "Fediverse",
-    href: "https://mstdn.aoirint.com/@aoirint",
+    text: 'Fediverse',
+    href: 'https://mstdn.aoirint.com/@aoirint',
     isMe: true,
   },
 ]
@@ -76,11 +76,11 @@ const Navbar: React.FC<{}> = () => {
     setMobileOpen((prevState) => !prevState)
   }
 
-  const drawerWidth = 240;
+  const drawerWidth = 240
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant='h6' sx={{ my: 2 }}>
         aoirint
       </Typography>
       <Divider />
@@ -89,7 +89,7 @@ const Navbar: React.FC<{}> = () => {
           <ListItemButton
             key={item.text}
             href={item.href}
-            rel={item.isMe ? "me" : undefined}
+            rel={item.isMe ? 'me' : undefined}
             LinkComponent={NextLink}
             sx={{ textAlign: 'center' }}
           >
@@ -103,7 +103,7 @@ const Navbar: React.FC<{}> = () => {
           <ListItemButton
             key={item.text}
             href={item.href}
-            rel={item.isMe ? "me" : undefined}
+            rel={item.isMe ? 'me' : undefined}
             LinkComponent={NextLink}
             sx={{ textAlign: 'center' }}
           >
@@ -113,35 +113,26 @@ const Navbar: React.FC<{}> = () => {
       </List>
     </Box>
   )
-  
+
   return (
     <>
-      <AppBar component="nav">
+      <AppBar component='nav'>
         <Toolbar>
           <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <NextLink href="/" passHref legacyBehavior>
-              <MuiLink color="inherit" underline="none">
+            <NextLink href='/' passHref legacyBehavior>
+              <MuiLink color='inherit' underline='none'>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Image
-                    src="/images/icon.png"
-                    alt="Logo image"
-                    width="28"
-                    height="28"
-                  />
-                  <Typography
-                    variant="h6"
-                    component="div"
-                    sx={{ ml: '0.5rem' }}
-                  >
+                  <Image src='/images/icon.png' alt='Logo image' width='28' height='28' />
+                  <Typography variant='h6' component='div' sx={{ ml: '0.5rem' }}>
                     aoirint
                   </Typography>
                 </Box>
@@ -155,7 +146,7 @@ const Navbar: React.FC<{}> = () => {
                   <Button
                     key={item.text}
                     href={item.href}
-                    rel={item.isMe ? "me" : undefined}
+                    rel={item.isMe ? 'me' : undefined}
                     LinkComponent={NextLink}
                     sx={{
                       textTransform: 'none',
@@ -171,7 +162,7 @@ const Navbar: React.FC<{}> = () => {
                   <Button
                     key={item.text}
                     href={item.href}
-                    rel={item.isMe ? "me" : undefined}
+                    rel={item.isMe ? 'me' : undefined}
                     LinkComponent={NextLink}
                     sx={{
                       textTransform: 'none',
@@ -188,7 +179,7 @@ const Navbar: React.FC<{}> = () => {
       </AppBar>
       <nav>
         <Drawer
-          variant="temporary"
+          variant='temporary'
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{

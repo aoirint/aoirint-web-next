@@ -1,6 +1,6 @@
-import React from 'react'
 import { Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material'
-import NextLink  from 'next/link'
+import NextLink from 'next/link'
+import React from 'react'
 
 export interface ServiceCard {
   title: string
@@ -15,9 +15,7 @@ export interface ServiceCardListProps {
   cards: ServiceCard[]
 }
 
-const ServiceCardList: React.FC<ServiceCardListProps> = ({
-  cards,
-}) => {
+const ServiceCardList: React.FC<ServiceCardListProps> = ({ cards }) => {
   return (
     <Grid container spacing={2}>
       {cards.map((card, cardIndex) => (
@@ -34,23 +32,25 @@ const ServiceCardList: React.FC<ServiceCardListProps> = ({
             >
               <Box sx={{ my: 1 }}>
                 <CardMedia
-                  component="img"
-                  sx={{ width: 64, height: 64, objectFit: "contain" }}
+                  component='img'
+                  sx={{ width: 64, height: 64, objectFit: 'contain' }}
                   image={card.image}
                   title={card.imageAlt}
                 />
               </Box>
-              <Box sx={{
-                flexGrow: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}
+              >
                 <CardContent sx={{ py: 0 }}>
-                  <Typography variant="h6" component="div">
+                  <Typography variant='h6' component='div'>
                     {card.title}
                   </Typography>
-                  <Typography variant="subtitle2" color="text.secondary">
+                  <Typography variant='subtitle2' color='text.secondary'>
                     {card.description}
                   </Typography>
                 </CardContent>

@@ -1,9 +1,21 @@
-import React from 'react'
-import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, CssBaseline, Grid, Toolbar, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Container,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Typography,
+} from '@mui/material'
 import MuiLink from '@mui/material/Link'
-import NextLink  from 'next/link'
+import Head from 'next/head'
+import NextLink from 'next/link'
+import React from 'react'
+import Navbar from '@/components/Navbar'
 
 interface ContentCard {
   title: string
@@ -42,18 +54,16 @@ const Contents: React.FC<{}> = () => {
     <>
       <Head>
         <title>コンテンツ - aoirint</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Container component="main" sx={{ m: 4, width: '100%' }}>
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
           <Toolbar />
-          <Typography variant="h4">
-            コンテンツ
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          <Typography variant='h4'>コンテンツ</Typography>
+          <Typography variant='subtitle1' color='text.secondary' gutterBottom>
             技術情報の発信をしています
           </Typography>
           <Grid container spacing={2}>
@@ -67,25 +77,34 @@ const Contents: React.FC<{}> = () => {
                       title={card.imageAlt}
                     />
                   </Box>
-                  <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                    }}
+                  >
                     <CardContent sx={{ py: 0 }}>
-                      <Typography variant="h6" component="div">
-                          {card.title}
+                      <Typography variant='h6' component='div'>
+                        {card.title}
                       </Typography>
-                      <Typography variant="subtitle2" color="text.secondary">
+                      <Typography variant='subtitle2' color='text.secondary'>
                         {card.description}
                       </Typography>
                     </CardContent>
                     <CardActions sx={{ ml: 1 }}>
                       {card.url != null ? (
-                        <Button size="medium" variant="contained" color="primary">
+                        <Button size='medium' variant='contained' color='primary'>
                           <NextLink href={card.url} passHref legacyBehavior>
-                            <MuiLink color="inherit" underline="none">
+                            <MuiLink color='inherit' underline='none'>
                               見てみる
                             </MuiLink>
                           </NextLink>
                         </Button>
-                      ) : ''}
+                      ) : (
+                        ''
+                      )}
                     </CardActions>
                   </Box>
                 </Card>

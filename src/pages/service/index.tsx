@@ -1,7 +1,7 @@
-import Navbar from '@/components/Navbar'
+import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
 import Head from 'next/head'
 import React from 'react'
-import { Box, Container, CssBaseline, Toolbar, Typography } from '@mui/material'
+import Navbar from '@/components/Navbar'
 import ServiceCardList, { ServiceCard } from '@/components/ServiceCardList'
 
 const cards: ServiceCard[] = [
@@ -44,18 +44,16 @@ const Services: React.FC<{}> = () => {
     <>
       <Head>
         <title>サービス - aoirint</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Container component="main" sx={{ m: 4, width: '100%' }}>
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
           <Toolbar />
-          <Typography variant="h4">
-            サービス
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          <Typography variant='h4'>サービス</Typography>
+          <Typography variant='subtitle1' color='text.secondary' gutterBottom>
             運用しているサービス（個人用含む）を掲載します
           </Typography>
           <ServiceCardList cards={cards} />

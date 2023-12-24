@@ -1,7 +1,7 @@
-import React from 'react'
-import NextLink  from 'next/link'
 import { Box, Card, CardContent, Typography } from '@mui/material'
 import MuiLink from '@mui/material/Link'
+import NextLink from 'next/link'
+import React from 'react'
 import { YtliveProgram } from '@/api/useLiveinfoApiMiddlewareYtlive'
 
 interface LiveinfoApiMiddlewareYtliveCardProps {
@@ -13,47 +13,58 @@ const LiveinfoApiMiddlewareYtliveCard: React.FC<LiveinfoApiMiddlewareYtliveCardP
 }) => {
   return (
     <>
-      <Card sx={{
-        display: 'flex',
-        ...program.thumbnailUrl != null ? {
-          backgroundImage: `url(${program.thumbnailUrl})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundColor: 'whitesmoke',
-        } : {},
-      }}>
-        <Box sx={{
+      <Card
+        sx={{
           display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-          p: 2,
-          ...program.thumbnailUrl != null ? {
-            backgroundColor: 'rgba(255, 255, 255, 0.75)',
-          } : {},
-        }}>
+          ...(program.thumbnailUrl != null
+            ? {
+                backgroundImage: `url(${program.thumbnailUrl})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundColor: 'whitesmoke',
+              }
+            : {}),
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1,
+            p: 2,
+            ...(program.thumbnailUrl != null
+              ? {
+                  backgroundColor: 'rgba(255, 255, 255, 0.75)',
+                }
+              : {}),
+          }}
+        >
           <CardContent sx={{ flexGrow: 1, py: 0 }}>
-            <Typography variant="h5" component="div">
+            <Typography variant='h5' component='div'>
               <NextLink href={program.programUrl ?? '#'} passHref legacyBehavior>
-                <MuiLink color="inherit" underline="none">
+                <MuiLink color='inherit' underline='none'>
                   {program.programTitle}
                 </MuiLink>
               </NextLink>
             </Typography>
-            <Typography variant="body2">
+            <Typography variant='body2'>
               <NextLink href={program.channelUrl ?? '#'} passHref legacyBehavior>
-                <MuiLink color="inherit" underline="none">
+                <MuiLink color='inherit' underline='none'>
                   {program.channelName}
                 </MuiLink>
               </NextLink>
             </Typography>
           </CardContent>
           <Box sx={{ display: 'flex', justifyContent: 'end', alignItems: 'end' }}>
-            <Typography variant="body2" color="text.secondary">
-              Powered by
-              {' '}
-              <NextLink href="https://www.youtube.com/channel/UC7OazbQ3Eo9vrkcReXGIZkQ" passHref legacyBehavior>
-                <MuiLink color="inherit" underline="always">
-                YouTube Data API
+            <Typography variant='body2' color='text.secondary'>
+              Powered by{' '}
+              <NextLink
+                href='https://www.youtube.com/channel/UC7OazbQ3Eo9vrkcReXGIZkQ'
+                passHref
+                legacyBehavior
+              >
+                <MuiLink color='inherit' underline='always'>
+                  YouTube Data API
                 </MuiLink>
               </NextLink>
             </Typography>

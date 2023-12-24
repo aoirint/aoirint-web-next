@@ -1,10 +1,22 @@
-import React from 'react'
 
-import Head from 'next/head'
-import Navbar from '@/components/Navbar'
-import { Box, Button, Table, TableRow, TableCell, TableBody, Container, CssBaseline, Grid, Toolbar, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Table,
+  TableRow,
+  TableCell,
+  TableBody,
+  Container,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Typography,
+} from '@mui/material'
 import MuiLink from '@mui/material/Link'
-import NextLink  from 'next/link'
+import Head from 'next/head'
+import NextLink from 'next/link'
+import React from 'react'
+import Navbar from '@/components/Navbar'
 
 interface InfoCardLink {
   text: string
@@ -107,18 +119,16 @@ const Infos: React.FC<{}> = () => {
     <>
       <Head>
         <title>おしらせ - aoirint</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Container component="main" sx={{ m: 4, width: '100%' }}>
+        <Container component='main' sx={{ m: 4, width: '100%' }}>
           <Toolbar />
-          <Typography variant="h4">
-            おしらせ
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+          <Typography variant='h4'>おしらせ</Typography>
+          <Typography variant='subtitle1' color='text.secondary' gutterBottom>
             イベント参加などのアナウンスを掲載します
           </Typography>
           <Grid container spacing={2}>
@@ -127,27 +137,22 @@ const Infos: React.FC<{}> = () => {
                 {cards.map((card, cardIndex) => (
                   <TableRow key={cardIndex}>
                     <TableCell align='center' style={{ verticalAlign: 'top' }}>
-                      <Typography variant='body2'>
-                        {card.date}
-                      </Typography>
+                      <Typography variant='body2'>{card.date}</Typography>
                     </TableCell>
                     <TableCell>
                       <Typography variant='body2' gutterBottom>
                         {card.text}
                       </Typography>
-                      <Box sx={{
-                        display: "flex",
-                        justifyContent: "flex-start",
-                        flexWrap: "wrap",
-                        gap: "8px",
-                      }}>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'flex-start',
+                          flexWrap: 'wrap',
+                          gap: '8px',
+                        }}
+                      >
                         {card.links.map((link, linkIndex) => (
-                          <Button
-                            key={linkIndex}
-                            variant='outlined'
-                            size='small'
-                            href={link.url}
-                          >
+                          <Button key={linkIndex} variant='outlined' size='small' href={link.url}>
                             {link.text}
                           </Button>
                         ))}
