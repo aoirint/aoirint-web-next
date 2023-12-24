@@ -15,94 +15,7 @@ import Head from 'next/head'
 import NextLink from 'next/link'
 import * as React from 'react'
 import Navbar from '@/components/Navbar'
-
-interface SocialLink {
-  service: string
-  identifier: string
-  href: string
-  isMe?: boolean
-}
-
-const socialLinks: SocialLink[] = [
-  {
-    service: 'GitHub',
-    identifier: '@aoirint',
-    href: 'https://github.com/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Qiita',
-    identifier: '@aoirint',
-    href: 'https://qiita.com/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Twitter',
-    identifier: '@aoirint',
-    href: 'https://twitter.com/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Mastodon',
-    identifier: '@aoirint@mstdn.aoirint.com',
-    href: 'https://mstdn.aoirint.com/@aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Misskey.io',
-    identifier: '@aoirint@misskey.io',
-    href: 'https://misskey.io/@aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Bluesky',
-    identifier: 'aoirint.bsky.social',
-    href: 'https://bsky.app/profile/aoirint.bsky.social',
-    isMe: true,
-  },
-  {
-    service: 'Threads',
-    identifier: '@aoirint@threads.net',
-    href: 'https://www.threads.net/@aoirint',
-    isMe: true,
-  },
-  {
-    service: 'Keybase',
-    identifier: '@aoirint',
-    href: 'https://keybase.io/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'AtCoder',
-    identifier: '@aoirint',
-    href: 'https://atcoder.jp/users/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'PyPI',
-    identifier: '@aoirint',
-    href: 'https://pypi.org/user/aoirint/',
-    isMe: true,
-  },
-  {
-    service: 'Docker Hub',
-    identifier: '@aoirint',
-    href: 'https://hub.docker.com/u/aoirint',
-    isMe: true,
-  },
-  {
-    service: 'pub.dev',
-    identifier: 'aoirint.com',
-    href: 'https://pub.dev/publishers/aoirint.com',
-    isMe: true,
-  },
-  {
-    service: 'Zenn',
-    identifier: '@aoirint',
-    href: 'https://zenn.dev/aoirint',
-    isMe: true,
-  },
-]
+import { socialAccounts } from '@/models/social_accounts'
 
 const SocialPage: React.FC<{}> = () => {
   return (
@@ -135,14 +48,12 @@ const SocialPage: React.FC<{}> = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {socialLinks.map((socialLink) => (
-                <TableRow key={socialLink.href}>
-                  <TableCell component='th'>{socialLink.service}</TableCell>
+              {socialAccounts.map((socialAccount) => (
+                <TableRow key={socialAccount.href}>
+                  <TableCell component='th'>{socialAccount.service}</TableCell>
                   <TableCell>
-                    <NextLink href={socialLink.href} passHref legacyBehavior>
-                      <MuiLink rel={socialLink.isMe ? 'me' : undefined}>
-                        {socialLink.identifier}
-                      </MuiLink>
+                    <NextLink href={socialAccount.href} passHref legacyBehavior>
+                      <MuiLink rel='me'>{socialAccount.identifier}</MuiLink>
                     </NextLink>
                   </TableCell>
                 </TableRow>
