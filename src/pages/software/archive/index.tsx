@@ -45,7 +45,7 @@ const ArchiveSoftwares: React.FC<{}> = () => {
       <Box sx={{ display: 'flex', width: '100%' }}>
         <CssBaseline />
         <Navbar />
-        <Container component="main" sx={{ p: 3, width: '100%' }}>
+        <Container component="main" sx={{ m: 4, width: '100%' }}>
           <Toolbar />
           <Typography variant="h4">
             メンテナンスを終了したソフトウェア
