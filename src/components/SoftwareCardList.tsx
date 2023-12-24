@@ -26,7 +26,7 @@ const SoftwareCardList: React.FC<SoftwareCardListProps> = ({
   return (
     <Grid container spacing={2}>
       {cards.map((card, cardIndex) => (
-        <Grid item xs={12} md={6} key={cardIndex}>
+        <Grid item xs={12} lg={6} key={cardIndex}>
           <Card sx={{ display: 'flex', height: '100%', p: 2 }}>
             <Box sx={{ my: 1 }}>
               <CardMedia

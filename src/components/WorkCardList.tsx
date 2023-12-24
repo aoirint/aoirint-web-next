@@ -21,7 +21,7 @@ const WorkCardList: React.FC<WorkCardListProps> = ({
   return (
     <Grid container spacing={2}>
       {cards.map((card, cardIndex) => (
-        <Grid item xs={12} md={3} key={cardIndex}>
+        <Grid item xs={12} lg={3} key={cardIndex}>
           <Card>
             <CardActionArea
               LinkComponent={NextLink}

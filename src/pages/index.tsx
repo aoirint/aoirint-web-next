@@ -71,7 +71,7 @@ export default function Home() {
             <LiveinfoApiMiddlewareYtliveCard program={ytliveProgram} />
           ) : ''}
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} lg={6}>
               <Typography variant="h5" gutterBottom>
                 最近の記事
               </Typography>
@@ -107,7 +107,7 @@ export default function Home() {
                 ))}
               </List>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} lg={6}>
               <Typography variant="h5" gutterBottom>
                 最近のリポジトリ
               </Typography>
