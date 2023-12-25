@@ -209,6 +209,7 @@ export default function Navbar(): JSX.Element {
       {socialAccounts.map((socialAccount, socialAccountIndex) => (
         <MenuItem
           key={socialAccountIndex}
+          component={NextLink}
           href={socialAccount.href}
           rel='me'
           onClick={handleSocialMenuClose}
